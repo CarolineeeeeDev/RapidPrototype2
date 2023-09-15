@@ -6,18 +6,17 @@ using UnityEngine;
 
 public class CurrentOrder : MonoBehaviour
 {
-    public int coffee;
     public int ice;
+    private string[] iceList = { "None","Iced", "Extra Iced", "Hot", "Extra Hot" };
     public int sugar;
     private int customerOrderIce;
     private int customerOrderSugar;
     public GameObject CustomerOrder;
-    public GameObject coffeeText;
-    public GameObject iceText;
-    public GameObject sugarText;
+    public TextMeshProUGUI iceText;
+    public TextMeshProUGUI sugarText;
+    public TextMeshProUGUI checkText;
     void Start()
     {
-        coffee = 0;
         ice = 0;
         sugar = 0;
         customerOrderIce = CustomerOrder.GetComponent<Orders>().customerIce;
@@ -29,60 +28,35 @@ public class CurrentOrder : MonoBehaviour
     {
         customerOrderIce = CustomerOrder.GetComponent<Orders>().customerIce;
         customerOrderSugar = CustomerOrder.GetComponent<Orders>().customerSugar;
-        switch (coffee)
-        {
-            case 0: 
-                coffeeText.GetComponent<TextMeshProUGUI>().text = "No coffee";
-                break;
-            case 1:
-                coffeeText.GetComponent<TextMeshProUGUI>().text = "Coffee";
-                break;
-        }
-        iceText.GetComponent<TextMeshProUGUI>().text = Convert.ToString(ice);
-        sugarText.GetComponent<TextMeshProUGUI>().text = Convert.ToString(sugar);
+        iceText.text = "Ice:" + Convert.ToString(iceList[ice]);
+        sugarText.text ="Sugar:"+ Convert.ToString(sugar);
     }
 
     public void RemoveCoffee()
     {
-        if ((coffee==1)&&(ice==customerOrderIce)&&(sugar==customerOrderSugar))
+        if ((ice==customerOrderIce)&&(sugar==customerOrderSugar))
         {
-            Debug.Log("Yes!");
+            checkText.text = "Right";
+            checkText.color = Color.green;
+            //No Rewards?
+            
         }
         else
         {
-            Debug.Log("No!");
-            if(coffee!=1)
-            {
-                Debug.Log("No coffee");
-            }
-            if(ice != customerOrderIce)
-            {
-                Debug.Log("Ice Error");
-                Debug.Log(ice);
-                Debug.Log(customerOrderIce);
-            }
-            if (sugar!=customerOrderSugar)
-            {
-                Debug.Log("Sugar Error");
-                Debug.Log(sugar);
-                Debug.Log(customerOrderSugar);
-            }
+            checkText.text = "Wrong";
+            checkText.color = Color.red;
+            //Sanity--
+
         }
-        coffee = 0;
         ice = 0;
         sugar = 0;
     }
 
     public void CheckOrder()
     {
-
         RemoveCoffee();
     }
 
-    public void SetCoffee()
-    {
-        coffee = 1;
-    }
 
     public void SetIceOne()
     {
