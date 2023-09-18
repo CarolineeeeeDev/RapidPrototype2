@@ -6,11 +6,14 @@ public class TitleController : MonoBehaviour
 {
     private const string _triggerParam = "Tutorial";
 
-    void Update()
+    public void StartTutorial()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameFlow.Instance.Control.SetTrigger(_triggerParam);
-        }
+        GameFlow.Instance.Control.SetTrigger(_triggerParam);
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("QUIT");
+    }
+    
 }
