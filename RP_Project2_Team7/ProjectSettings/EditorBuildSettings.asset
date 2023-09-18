@@ -4,7 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: 40e734361c52c2a49b316bdd34b16d26
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: deb6d41b4aea44d4abcdab454ac06b95
+  - enabled: 1
+    path: Assets/Scenes/MinigameOne.unity
+    guid: 0a8527147e0fe5f4e914d8628a2ddb5b
+  - enabled: 1
+    path: Assets/Scenes/ResultScene.unity
+    guid: 773aebae7d22a224e80ec341274b5b39
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 2b8d77df04e3d2545b624a2d7cd1b486,
       type: 2}
