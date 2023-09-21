@@ -9,18 +9,23 @@ public class CurrentOrder : MonoBehaviour
     public int ice;
     private string[] iceList = { "None","Iced", "Extra Iced", "Hot", "Extra Hot" };
     public int sugar;
+    public int coffeeBean;
     private int customerOrderIce;
+    private int customerOrderCoffeeBean;
     private int customerOrderSugar;
     public GameObject CustomerOrder;
+    public TextMeshProUGUI coffeeBeanText;
     public TextMeshProUGUI iceText;
     public TextMeshProUGUI sugarText;
     public TextMeshProUGUI checkText;
     void Start()
     {
+        coffeeBean = 0;
         ice = 0;
         sugar = 0;
         customerOrderIce = CustomerOrder.GetComponent<Orders>().customerIce;
         customerOrderSugar = CustomerOrder.GetComponent<Orders>().customerSugar;
+        customerOrderCoffeeBean=CustomerOrder.GetComponent<Orders>().customerCoffeeBean;
     }
 
     
@@ -28,13 +33,15 @@ public class CurrentOrder : MonoBehaviour
     {
         customerOrderIce = CustomerOrder.GetComponent<Orders>().customerIce;
         customerOrderSugar = CustomerOrder.GetComponent<Orders>().customerSugar;
+        customerOrderCoffeeBean = CustomerOrder.GetComponent<Orders>().customerCoffeeBean;
         iceText.text = "Ice:" + Convert.ToString(iceList[ice]);
         sugarText.text ="Sugar:"+ Convert.ToString(sugar);
+        coffeeBeanText.text = "Shots:"+Convert.ToString(coffeeBean);
     }
 
     public void RemoveCoffee()
     {
-        if ((ice==customerOrderIce)&&(sugar==customerOrderSugar))
+        if ((coffeeBean == customerOrderCoffeeBean) &&(ice==customerOrderIce)&&(sugar==customerOrderSugar))
         {
             checkText.text = "Right";
             checkText.color = Color.green;
@@ -50,6 +57,7 @@ public class CurrentOrder : MonoBehaviour
         }
         ice = 0;
         sugar = 0;
+        coffeeBean = 0;
     }
 
     public void CheckOrder()
@@ -92,6 +100,24 @@ public class CurrentOrder : MonoBehaviour
     public void SetSugarFour()
     {
         sugar = 4;
+    }
+
+    public void SetCoffeeBeanOne()
+    {
+        coffeeBean = 1;
+    }
+
+    public void SetCoffeeBeanTwo()
+    {
+        coffeeBean = 2;
+    }
+    public void SetCoffeeBeanThree()
+    {
+        coffeeBean = 3;
+    }
+    public void SetCoffeeBeanFour()
+    {
+        coffeeBean = 4;
     }
 
 

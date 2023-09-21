@@ -8,13 +8,7 @@ public class CupSpot : MonoBehaviour
     [SerializeField] private GameObject maincamera;
     [SerializeField] private GameObject cupSpot;
     [SerializeField] private GameObject initialSpot;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (maincamera.GetComponent<CameraSpot>().isCupSpot)
