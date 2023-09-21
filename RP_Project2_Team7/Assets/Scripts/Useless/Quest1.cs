@@ -7,13 +7,7 @@ public class Quest1 : MonoBehaviour
 {
     public int organizedCup = 0;
     public Button button;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (organizedCup==3)
