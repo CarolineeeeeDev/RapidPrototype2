@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class CurrentOrder : MonoBehaviour
 {
-    public int ice;
-    private string[] iceList = { "None","Iced", "Extra Iced", "Hot", "Extra Hot" };
+    //public int ice;//add function
+    private int ice;
+    //public int Ice-
+    private string[] iceList = { "None","Iced", "Extra Iced", "Hot", "Extra Hot" };//public it
     public int sugar;
     public int coffeeBean;
     private int customerOrderIce;

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class RemainingTime : MonoBehaviour
 {
-    [SerializeField] float timeRemaining=10f;
+    [SerializeField] float timeRemaining=15f;
     public TextMeshProUGUI timeSpentText;
     public TextMeshProUGUI checkText;
     private bool finishOrder = false;
@@ -14,7 +14,7 @@ public class RemainingTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("ResetTime", 10f, 10f);
+        InvokeRepeating("ResetTime", 15f, 15f);
     }
 
     // Update is called once per frame
@@ -38,13 +38,13 @@ public class RemainingTime : MonoBehaviour
             checkText.text = "Miss";
             checkText.color = Color.yellow;
         }
-        timeRemaining = 10f;
+        timeRemaining = 15f;
         finishOrder = false;
     }
 
     public void StopInvoke()
     {
         CancelInvoke("ResetTime");
-        InvokeRepeating("ResetTime", 0f, 10f);
+        InvokeRepeating("ResetTime", 0f, 15f);
     }
 }

@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class Orders : MonoBehaviour
 {
     //Ice
-    public string[] iceList = { "Iced", "Extra Iced", "Hot", "Extra Hot" };
+    public string[] iceList = { "Iced", "Extra Iced", "Hot", "Extra Hot" };//Change to enum
+    
+
     //Sugar
     public int[] sugarList = { 1, 2, 3, 4 };
     //Name
@@ -47,8 +49,16 @@ public class Orders : MonoBehaviour
 
     private void SpawnOrder()
     {
+        /*
+        UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
+        randomIce = UnityEngine.Random.Range(1, 5);
+        randomSugar = UnityEngine.Random.Range(1, 5);
+        randomCoffeeBean= UnityEngine.Random.Range(1, 5);
+        randomCustomerName = UnityEngine.Random.Range(0, 20);
+         */
         customerNameText.text = customerNameList[randomCustomerName];
         customerIce = randomIce;
+        iceText.text = iceList[customerIce-1];
         iceText.text = iceList[customerIce-1];
         customerSugar = randomSugar;
         sugarText.text = Convert.ToString(sugarList[customerSugar-1]);
@@ -58,13 +68,13 @@ public class Orders : MonoBehaviour
 
     public void StartOrder()
     {
-        InvokeRepeating("SpawnOrder", 0f, 10f);
+        InvokeRepeating("SpawnOrder", 0f, 15f);
     }
 
     public void StopInvoke()
     {
         CancelInvoke("SpawnOrder");
-        InvokeRepeating("SpawnOrder", 0f, 10f);
+        InvokeRepeating("SpawnOrder", 0f, 15f);
     }
 
     
