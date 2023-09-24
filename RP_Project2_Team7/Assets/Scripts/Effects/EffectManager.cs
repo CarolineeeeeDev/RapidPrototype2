@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour
 {
-    public static EffectManager Instance;
-
-    [SerializeField]
-    private BlurEffect blurEffect;
-    private Coroutine blurCoroutine;
 
 #region singleton
+    public static EffectManager Instance;
     private void Awake() 
     {
         if(Instance == null) { Instance = this;}
         else { Destroy(this); }     
     }
 #endregion
+    [SerializeField]
+    private BlurEffect blurEffect;
+    private Coroutine blurCoroutine;
+
 
     private void Start() 
     {
