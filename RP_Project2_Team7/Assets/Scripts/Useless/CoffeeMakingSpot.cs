@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoffeeMakingSpot : MonoBehaviour
+public class CoffeeMakingSpot : CameraSpotTest
 {
     [SerializeField] private GameObject maincamera;
     [SerializeField] private GameObject coffeeMakingSpot;
@@ -28,15 +28,29 @@ public class CoffeeMakingSpot : MonoBehaviour
 
     }
 
+    public override void MoveToSpot()
+    {
+        base.MoveToSpot();
+        Debug.Log("Move to coffee");
+    }
+
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            maincamera.GetComponent<CameraMovement>().isCoffeeSpot = true;
+            //maincamera.GetComponent<CameraMovement>().isCoffeeSpot = true;
+            ChangeCameraToCoffeeSpot();
+            MoveToSpot();
         }
         if (Input.GetMouseButtonDown(1))
         {
             maincamera.GetComponent<CameraMovement>().isCoffeeSpot = false;
         }
+    }
+
+    //
+    public void ChangeCameraToCoffeeSpot()
+    {
+        //CameraManager.Instance.MoveCamera(transform);
     }
 }
