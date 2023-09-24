@@ -20,6 +20,7 @@ public class HealthManager : MonoBehaviour
         addiction = 0f;
         addictionBar.value = addiction;
         EffectManager.Instance.StartBlur();
+        MusicManager.Instance.StartDrugMode();
     }
 
 
@@ -45,6 +46,7 @@ public class HealthManager : MonoBehaviour
         addiction += additionInrease;
         addictionBar.value = addiction;
         EffectManager.Instance.RestartBlur();
+        MusicManager.Instance.RestartDrugMode();
 
         //Lose
         if(addiction >= 100f)
