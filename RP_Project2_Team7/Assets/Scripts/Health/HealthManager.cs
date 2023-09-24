@@ -19,6 +19,7 @@ public class HealthManager : MonoBehaviour
         healthBar.value = sanity;
         addiction = 0f;
         addictionBar.value = addiction;
+        EffectManager.Instance.StartBlur();
     }
 
 
@@ -43,6 +44,7 @@ public class HealthManager : MonoBehaviour
         sanity = 100f;
         addiction += additionInrease;
         addictionBar.value = addiction;
+        EffectManager.Instance.RestartBlur();
 
         //Lose
         if(addiction >= 100f)
