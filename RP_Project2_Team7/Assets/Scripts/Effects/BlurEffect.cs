@@ -16,37 +16,58 @@ public class BlurEffect : MonoBehaviour
 
     private void Update() 
     {
-        //Test
-        {
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                ModifyUIBlur(blurSpeed, blurSpeed);
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                ResetBlur();
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                if(blurCoroutine != null ) 
-                { 
-                    ResetBlur();
-                    StopCoroutine(blurCoroutine); 
-                }
-                blurCoroutine = StartCoroutine(StartBlur());
-            }
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                if(blurCoroutine != null ) 
-                { 
-                    ResetBlur();
-                    StopCoroutine(blurCoroutine); 
-                }
-            }
-        }
+        // //Test
+        // {
+        //     if (Input.GetKeyDown(KeyCode.T))
+        //     {
+        //         ModifyUIBlur(blurSpeed, blurSpeed);
+        //     }
+        //     if (Input.GetKeyDown(KeyCode.R))
+        //     {
+        //         ResetBlur();
+        //     }
+        //     if (Input.GetKeyDown(KeyCode.S))
+        //     {
+        //         if(blurCoroutine != null ) 
+        //         { 
+        //             ResetBlur();
+        //             StopCoroutine(blurCoroutine); 
+        //         }
+        //         blurCoroutine = StartCoroutine(StartBlurCoroutine());
+        //     }
+        //     if (Input.GetKeyDown(KeyCode.P))
+        //     {
+        //         if(blurCoroutine != null ) 
+        //         { 
+        //             ResetBlur();
+        //             StopCoroutine(blurCoroutine); 
+        //         }
+        //     }
+        // }
     }
 
-    private IEnumerator StartBlur()
+    private void Awake() 
+    {
+        ResetBlur();
+    }
+
+    public void StartBlur()
+    {
+        blurCoroutine = StartCoroutine(StartBlurCoroutine());
+    }
+
+    public void RestartBlur()
+    {
+        if(blurCoroutine != null ) 
+        { 
+            ResetBlur();
+            StopCoroutine(blurCoroutine);
+            blurCoroutine = null; 
+        }
+        StartBlur();
+    }
+
+    private IEnumerator StartBlurCoroutine()
     {
         while(true)
         {
@@ -55,7 +76,7 @@ public class BlurEffect : MonoBehaviour
         }
     }
 
-    public void ModifyUIBlur(float blurXToAdd, float blurYToAdd)
+    private void ModifyUIBlur(float blurXToAdd, float blurYToAdd)
     {
         float x = blurMaterial.GetFloat("_BlurAmountX");
         float y = blurMaterial.GetFloat("_BlurAmountY");
@@ -63,7 +84,7 @@ public class BlurEffect : MonoBehaviour
         blurMaterial.SetFloat("_BlurAmountY", y + blurYToAdd);
     }
 
-    public void ResetBlur()
+    private void ResetBlur()
     {
         blurMaterial.SetFloat("_BlurAmountX", 0);
         blurMaterial.SetFloat("_BlurAmountY", 0);
