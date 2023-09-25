@@ -4,37 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CoffeeOrder
-{
-    private int coffeeStrength;
-    private int ice;
-    private int sugar;
-
-    public int CoffeeStrength => coffeeStrength;
-    public int Ice => ice;
-    public int Sugar => sugar;
-
-    public void SetCoffeeStrength(int newCoffeeStrength)
-    {
-        coffeeStrength = newCoffeeStrength;
-    }
-
-    public void SetIce(int newIce)
-    {
-        ice = newIce;
-    }
-    public void SetSugar(int newSugar)
-    {
-        sugar = newSugar;
-    }
-    public void SetOrder( int newCoffeeStrength, int newIce, int newSugar)
-    {
-        coffeeStrength = newCoffeeStrength;
-        ice = newIce;
-        sugar = newSugar;
-    }
-}
-
 public class OrderManager : MonoBehaviour
 {
     [SerializeField] private GameObject CustomerOrderUI;
@@ -44,12 +13,12 @@ public class OrderManager : MonoBehaviour
     //Difficulty One
     [SerializeField]
     private string[] coffeeList = { "Americano", "Black Coffee","Cappuccino","Espresso","Latte", "Macchiato", "Mocha", "Cold Coffee Variety" };
-    [SerializeField]
-    private string[] coffeeStrengthList = { "1", "2", "3", "4" };
-    [SerializeField]
-    private string[] iceList = { "Iced","Extra Iced","Hot","Extra Hot" };
-    [SerializeField]
-    private string[] sugarList = { "one","two","three","four" };
+    // [SerializeField]
+    // private string[] coffeeStrengthList = { "1", "2", "3", "4" };
+    // [SerializeField]
+    // private string[] iceList = { "Iced","Extra Iced","Hot","Extra Hot" };
+    // [SerializeField]
+    // private string[] sugarList = { "one","two","three","four" };
     //private string[] milkList
     //private string[] foodList
 
@@ -63,6 +32,10 @@ public class OrderManager : MonoBehaviour
 
     private CoffeeOrder customerOrder=new CoffeeOrder();//CustomerOrderInformation
 
+    [SerializeField] 
+    private DifficultyDefinition startDifficulty;
+    private DifficultyDefinition currentDifficulty;
+
     private void Start()
     {
         CustomerOrderUI.SetActive(true);
@@ -70,6 +43,7 @@ public class OrderManager : MonoBehaviour
         CustomerResponseUI.SetActive(false);
         InvokeRepeating("SpawnCustomerOrder", 0, 15);
         InvokeRepeating("HideCustomerOrderUI", 5, 15);
+        currentDifficulty = startDifficulty;
     }
 
     private void InitiateOrder()
@@ -78,6 +52,11 @@ public class OrderManager : MonoBehaviour
         currentOrder.SetOrder( 0, 0, 0);
     }
 
+    private int ChooseRandomIndex(List<string> stringArray)
+    {
+        UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
+        return UnityEngine.Random.Range(0, stringArray.Count);
+    }
     private int ChooseRandomIndex(string[] stringArray)
     {
         UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
@@ -89,11 +68,18 @@ public class OrderManager : MonoBehaviour
         CustomerOrderUI.SetActive(true);
         MakeCoffeeUI.SetActive(true);
         InitiateOrder();
-        customerOrder.SetCoffeeStrength(ChooseRandomIndex(coffeeStrengthList)+1);
-        customerOrder.SetIce(ChooseRandomIndex(iceList)+1);
-        customerOrder.SetSugar(ChooseRandomIndex(sugarList)+1);
-        orderText.text = "Hello there. I would like a "+coffeeList[ChooseRandomIndex(coffeeList)] +" with a strength of "+ coffeeStrengthList[customerOrder.CoffeeStrength-1] +", "
-            + iceList[customerOrder.Ice-1] +", with "+ sugarList[customerOrder.Sugar - 1] +" sugar.Thank you!";
+        customerOrder.SetCoffeeStrength(ChooseRandomIndex(currentDifficulty.CoffeeStrength)+1);
+        customerOrder.SetIce(ChooseRandomIndex(currentDifficulty.Ice)+1);
+        customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar)+1);
+        orderText.text = "Hello there. I would like a " + 
+                         coffeeList[ChooseRandomIndex(coffeeList)] +
+                         " " + 
+                         currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength-1] + 
+                         ", " + 
+                         currentDifficulty.Ice[customerOrder.Ice-1] +
+                         ", with " + 
+                         currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                         ". Thank you!";
     }
 
     //Current Order UI interaction
