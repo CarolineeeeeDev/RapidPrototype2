@@ -132,7 +132,7 @@ public class OrderManager : MonoBehaviour
         if(isCorrect)
         {
             Debug.Log("Right");
-            responseText.text = "Thank you very much!";
+            responseText.text = currentDifficulty.CorrectSentences[ChooseRandomIndex(currentDifficulty.CorrectSentences)];
             correctOrderCount ++;
             if(correctOrderCount == currentDifficulty.UpgradeOrderCount)
             {
@@ -148,7 +148,7 @@ public class OrderManager : MonoBehaviour
         else
         {
             Debug.Log("Wrong");
-            responseText.text = "This is not what I ordered!";
+            responseText.text = currentDifficulty.WrongSentences[ChooseRandomIndex(currentDifficulty.WrongSentences)];
         }
     }
     private string GenerateOrderText(int difficulty)
