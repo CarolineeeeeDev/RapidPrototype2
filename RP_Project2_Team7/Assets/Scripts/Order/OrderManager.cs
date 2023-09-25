@@ -33,8 +33,15 @@ public class OrderManager : MonoBehaviour
     private CoffeeOrder customerOrder=new CoffeeOrder();//CustomerOrderInformation
 
     [SerializeField] 
-    private DifficultyDefinition startDifficulty;
+    private List<DifficultyDefinition> difficulties;
     private DifficultyDefinition currentDifficulty;
+    private int currentDifficultyIndex;
+
+    private int correctOrderCount = 0;
+
+    //right order count
+    //will reset when upgrade
+    //upgrade to next level count => this can move to difficulty definition
 
     private void Start()
     {
@@ -43,7 +50,8 @@ public class OrderManager : MonoBehaviour
         CustomerResponseUI.SetActive(false);
         InvokeRepeating("SpawnCustomerOrder", 0, 15);
         InvokeRepeating("HideCustomerOrderUI", 5, 15);
-        currentDifficulty = startDifficulty;
+        currentDifficulty = difficulties[0];
+        currentDifficultyIndex = 1;
     }
 
     private void InitiateOrder()
@@ -54,12 +62,12 @@ public class OrderManager : MonoBehaviour
 
     private int ChooseRandomIndex(List<string> stringArray)
     {
-        UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
+        //UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
         return UnityEngine.Random.Range(0, stringArray.Count);
     }
     private int ChooseRandomIndex(string[] stringArray)
     {
-        UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
+        //UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
         return UnityEngine.Random.Range(0, stringArray.Length);
     }
     
@@ -68,19 +76,12 @@ public class OrderManager : MonoBehaviour
         CustomerOrderUI.SetActive(true);
         MakeCoffeeUI.SetActive(true);
         InitiateOrder();
-        customerOrder.SetCoffeeStrength(ChooseRandomIndex(currentDifficulty.CoffeeStrength)+1);
-        customerOrder.SetIce(ChooseRandomIndex(currentDifficulty.Ice)+1);
-        customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar)+1);
-        orderText.text = "Hello there. I would like a " + 
-                         coffeeList[ChooseRandomIndex(coffeeList)] +
-                         " " + 
-                         currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength-1] + 
-                         ", " + 
-                         currentDifficulty.Ice[customerOrder.Ice-1] +
-                         ", with " + 
-                         currentDifficulty.Sugar[customerOrder.Sugar - 1] +
-                         ". Thank you!";
+        customerOrder.SetCoffeeStrength(ChooseRandomIndex(currentDifficulty.CoffeeStrength) + 1);
+        customerOrder.SetIce(ChooseRandomIndex(currentDifficulty.Ice) + 1);
+        customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar) + 1);
+        orderText.text = GenerateOrderText(currentDifficultyIndex);
     }
+
 
     //Current Order UI interaction
     public void SetCurrentCoffeeStrength(int currentCoffeeBean)
@@ -108,16 +109,124 @@ public class OrderManager : MonoBehaviour
     {
         MakeCoffeeUI.SetActive(false);
         CustomerResponseUI.SetActive(true);
-        if ((customerOrder.CoffeeStrength==currentOrder.CoffeeStrength)&&(customerOrder.Ice==currentOrder.Ice)&&(customerOrder.Sugar==currentOrder.Sugar))//Check coffee bean, ice, sugar
+        bool isCorrect = false;
+        switch(currentDifficultyIndex)
+        {
+            case 1:
+            case 2:
+            case 3:
+                isCorrect = (customerOrder.CoffeeStrength == currentOrder.CoffeeStrength) &&
+                            (customerOrder.Ice == currentOrder.Ice) &&
+                            (customerOrder.Sugar == currentOrder.Sugar);
+                break;
+            case 4:
+            case 5:
+                isCorrect = (customerOrder.CoffeeStrength == currentOrder.CoffeeStrength) &&
+                            (customerOrder.Ice == currentOrder.Ice) &&
+                            (customerOrder.Sugar == currentOrder.Sugar);
+                            //&& extra milk && extra food
+                break;
+            default:
+                break;
+        }
+        if(isCorrect)
         {
             Debug.Log("Right");
             responseText.text = "Thank you very much!";
+            correctOrderCount ++;
+            if(correctOrderCount == currentDifficulty.UpgradeOrderCount)
+            {
+                Debug.Log("UPGRADE TO NEXT LEVEL");
+                currentDifficultyIndex ++;
+                if(difficulties.Count >= currentDifficultyIndex)
+                {
+                    currentDifficulty = difficulties[currentDifficultyIndex - 1];
+                }
+                correctOrderCount = 0;
+            }
         }
         else
         {
             Debug.Log("Wrong");
             responseText.text = "This is not what I ordered!";
         }
+    }
+    private string GenerateOrderText(int difficulty)
+    {
+        string orderText = "";
+        switch(difficulty)
+        {
+            case 1:
+                orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
+                            "I would like a " + 
+                            coffeeList[ChooseRandomIndex(coffeeList)] +
+                            " " + 
+                            currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
+                            ", " + 
+                            currentDifficulty.Ice[customerOrder.Ice - 1] +
+                            ", with " + 
+                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            ". Thank you!";
+                break;
+            case 2:
+                orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
+                            "I would like a " +
+                            coffeeList[ChooseRandomIndex(coffeeList)] +
+                            " " + 
+                            currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
+                            ", " + 
+                            currentDifficulty.Ice[customerOrder.Ice - 1] +
+                            ", with " + 
+                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            ". Thank you!";
+                break;
+            case 3:
+                orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
+                            "I would like a " +
+                            coffeeList[ChooseRandomIndex(coffeeList)] +
+                            " " + 
+                            currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
+                            ", " + 
+                            currentDifficulty.Ice[customerOrder.Ice - 1] +
+                            ", with " + 
+                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            ". Thank you!";
+                break;
+            case 4:
+                orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
+                            "I would like a " + 
+                            coffeeList[ChooseRandomIndex(coffeeList)] +
+                            " " + 
+                            currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
+                            ", " + 
+                            currentDifficulty.Ice[customerOrder.Ice - 1] +
+                            ", with " + 
+                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            //Extra Milk
+                            ", and " + 
+                            //Extra food
+                            ". Thank you!";
+                break;
+            case 5:
+                orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
+                            "I would like a " +
+                            coffeeList[ChooseRandomIndex(coffeeList)] +
+                            " " + 
+                            currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
+                            ", " + 
+                            currentDifficulty.Ice[customerOrder.Ice - 1] +
+                            ", with " + 
+                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            //Extra Milk
+                            ", and " + 
+                            //Extra food
+                            ". Thank you!";
+                break;
+            default:
+                break;
+            
+        }
+        return orderText;
     }
 
 

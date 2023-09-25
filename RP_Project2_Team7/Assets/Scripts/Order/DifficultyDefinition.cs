@@ -6,6 +6,11 @@ using UnityEngine;
 public class DifficultyDefinition : ScriptableObject
 {
     [SerializeField]
+    private int upgradeOrderCount;
+    public int UpgradeOrderCount => upgradeOrderCount;
+    [Header("Random Order")]
+
+    [SerializeField]
     private List<string> coffeeStrength;
     public List<string> CoffeeStrength => coffeeStrength;
     [SerializeField]
@@ -20,6 +25,18 @@ public class DifficultyDefinition : ScriptableObject
     [SerializeField]
     private List<string> extraFood;
     public List<string> ExtraFood => extraFood;
+
+    [Header("Random Sentences")]
+
+    [SerializeField]
+    private List<string> introSentences;
+    public List<string> IntroSentences => introSentences;
+    [SerializeField]
+    private List<string> correctSentences;
+    public List<string> CorrectSentences => correctSentences;
+    [SerializeField]
+    private List<string> wrongSentences;
+    public List<string> WrongSentences => wrongSentences;
 
     // [SerializeField]
     // private bool hasRandomOrderChange;
