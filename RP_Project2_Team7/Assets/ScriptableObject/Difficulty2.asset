@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d472971b0e5adc4ba204a924769fbcf, type: 3}
+  m_Name: Difficulty2
+  m_EditorClassIdentifier: 
+  upgradeOrderCount: 5
+  coffeeStrength:
+  - '222with a strength of 1 '
+  - '222with a strength of 2 '
+  - '222with a strength of 3 '
+  - '222with a strength of 4 '
+  ice:
+  - '222with one ice '
+  - '222with two ice '
+  - '222warm '
+  - '222hot '
+  sugar:
+  - '222one sugar '
+  - '222two sugar '
+  - '222three sugar '
+  - '222four sugar '
+  extraMilk: []
+  extraFood: []
+  introSentences:
+  - Hello2
+  - Hi2
+  correctSentences:
+  - Thanks!2
+  - Thank you very much!2
+  wrongSentences:
+  - I don't like the coffee :(2
+  - This is not what I ordered!2

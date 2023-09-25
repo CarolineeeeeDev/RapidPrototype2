@@ -2134,23 +2134,11 @@ MonoBehaviour:
   - Macchiato
   - Mocha
   - Cold Coffee Variety
-  coffeeStrengthList:
-  - 1
-  - 2
-  - 3
-  - 4
-  iceList:
-  - Iced
-  - Extra Iced
-  - Hot
-  - Extra Hot
-  sugarList:
-  - one
-  - two
-  - three
-  - four
   orderText: {fileID: 5764714518738252982}
   responseText: {fileID: 609697538096985260}
+  difficulties:
+  - {fileID: 11400000, guid: ad01433ea46be4e4f85eeb7944f053c9, type: 2}
+  - {fileID: 11400000, guid: 64a0ad752f6232440a82e36a51f2ab55, type: 2}
 --- !u!1 &6927181526719598118
 GameObject:
   m_ObjectHideFlags: 0
