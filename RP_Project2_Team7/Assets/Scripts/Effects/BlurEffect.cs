@@ -90,4 +90,9 @@ public class BlurEffect : MonoBehaviour
         blurMaterial.SetFloat("_BlurAmountY", 0);
     }
 
+    private void OnDestroy() 
+    {
+        ResetBlur();
+    }
+
 }

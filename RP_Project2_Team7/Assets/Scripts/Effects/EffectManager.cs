@@ -15,7 +15,8 @@ public class EffectManager : MonoBehaviour
 #endregion
     [SerializeField]
     private BlurEffect blurEffect;
-    private Coroutine blurCoroutine;
+    [SerializeField]
+    private BlendEffect blendEffect;
 
 
     private void Start() 
@@ -34,6 +35,17 @@ public class EffectManager : MonoBehaviour
     {
         if(blurEffect == null) { return; }
         blurEffect.RestartBlur();
+    }
+
+    public void StartBlendTexture()
+    {
+        if(blendEffect == null) { return; }
+        blendEffect.StartBlendTexture();
+    }
+    public void RestartBlendTexture()
+    {
+        if(blendEffect == null) { return; }
+        blendEffect.RestartBlendTexture();
     }
 
 }
