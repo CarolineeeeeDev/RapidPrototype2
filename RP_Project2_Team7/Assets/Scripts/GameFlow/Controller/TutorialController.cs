@@ -9,5 +9,6 @@ public class TutorialController : MonoBehaviour
     public void StartGame()
     {
         GameFlow.Instance.Control.SetTrigger(_triggerParam);
+        MusicManager.Instance.PlayClickButton();
     }
 }

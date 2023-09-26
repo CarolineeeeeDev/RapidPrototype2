@@ -22,6 +22,13 @@ public class MusicManager : MonoBehaviour
     [SerializeField]
     [Range(0.1f, 10f)]
     private float insaneSpeed = 0.05f;
+    [SerializeField]
+    private AudioSource sfxSource;
+
+    [SerializeField]
+    private AudioClip clickButtonSound;
+    [SerializeField]
+    private AudioClip selectSound;
 
     private AudioSource baseAudioSource;
     private AudioSource normalAudioSource;
@@ -54,6 +61,22 @@ public class MusicManager : MonoBehaviour
         PlayMusic(normalAudioSource);
         PlayMusic(noiseAudioSource);
         
+    }
+
+    public void PlayClickButton()
+    {
+        PlaySoundEffect(clickButtonSound);
+    }
+
+    public void PlySelectSound()
+    {
+        PlaySoundEffect(selectSound);
+    }
+
+    private void PlaySoundEffect(AudioClip clip)
+    {
+        if(clip == null) { return; }
+        sfxSource.PlayOneShot(clip);
     }
 
     private void PlayMusic(AudioSource sourceToPlay)

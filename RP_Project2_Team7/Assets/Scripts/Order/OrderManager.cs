@@ -87,14 +87,17 @@ public class OrderManager : MonoBehaviour
     public void SetCurrentCoffeeStrength(int currentCoffeeBean)
     {
         currentOrder.SetCoffeeStrength(currentCoffeeBean);
+        MusicManager.Instance.PlySelectSound();
     }
     public void SetCurrentIce(int currentIce)
     {
         currentOrder.SetIce(currentIce);
+        MusicManager.Instance.PlySelectSound();
     }
     public void SetCurrentSugar(int currentSugar)
     {
         currentOrder.SetSugar(currentSugar);
+        MusicManager.Instance.PlySelectSound();
     }
 
     //Order-related functions
@@ -107,6 +110,7 @@ public class OrderManager : MonoBehaviour
 
     public void CheckCoffee()
     {
+        MusicManager.Instance.PlySelectSound();
         MakeCoffeeUI.SetActive(false);
         CustomerResponseUI.SetActive(true);
         bool isCorrect = false;
