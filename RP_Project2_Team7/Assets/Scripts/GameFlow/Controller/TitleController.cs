@@ -9,6 +9,7 @@ public class TitleController : MonoBehaviour
     public void StartTutorial()
     {
         GameFlow.Instance.Control.SetTrigger(_triggerParam);
+        MusicManager.Instance.PlayClickButton();
     }
 
     public void QuitGame()
