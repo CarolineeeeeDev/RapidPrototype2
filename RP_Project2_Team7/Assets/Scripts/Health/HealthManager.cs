@@ -20,6 +20,7 @@ public class HealthManager : MonoBehaviour
         addiction = 0f;
         addictionBar.value = addiction;
         EffectManager.Instance.StartBlur();
+        EffectManager.Instance.StartBlendTexture();
         MusicManager.Instance.StartDrugMode();
     }
 
@@ -46,6 +47,7 @@ public class HealthManager : MonoBehaviour
         addiction += additionInrease;
         addictionBar.value = addiction;
         EffectManager.Instance.RestartBlur();
+        EffectManager.Instance.RestartBlendTexture();
         MusicManager.Instance.RestartDrugMode();
 
         //Lose
