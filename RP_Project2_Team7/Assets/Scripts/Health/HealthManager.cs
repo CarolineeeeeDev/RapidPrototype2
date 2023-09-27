@@ -19,6 +19,8 @@ public class HealthManager : MonoBehaviour
         healthBar.value = sanity;
         addiction = 0f;
         addictionBar.value = addiction;
+        EffectManager.Instance.StartBlur();
+        MusicManager.Instance.StartDrugMode();
     }
 
 
@@ -27,11 +29,11 @@ public class HealthManager : MonoBehaviour
     {
         sanity -= Time.deltaTime * sanityDecreaseSpeed;
         healthBar.value = sanity;
-
+        addictionBar.value = addiction;
         //Lose
         if (sanity <= 0f)
         {
-
+            
         }
 
     }
@@ -43,11 +45,14 @@ public class HealthManager : MonoBehaviour
         sanity = 100f;
         addiction += additionInrease;
         addictionBar.value = addiction;
+        EffectManager.Instance.RestartBlur();
+        MusicManager.Instance.RestartDrugMode();
 
         //Lose
         if(addiction >= 100f)
         {
-
+            
         }
     }
+
 }
