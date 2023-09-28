@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
+    private const string _triggerParam = "Result";
     [SerializeField] private float sanityDecreaseSpeed = 5f;
     [SerializeField] private float additionInrease = 10f;
     private float sanity;
@@ -34,7 +35,7 @@ public class HealthManager : MonoBehaviour
         //Lose
         if (sanity <= 0f)
         {
-
+            EndGame();
         }
 
     }
@@ -53,7 +54,13 @@ public class HealthManager : MonoBehaviour
         //Lose
         if(addiction >= 100f)
         {
-
+            EndGame();
         }
     }
+
+    public void EndGame()
+    {
+        GameFlow.Instance.Control.SetTrigger(_triggerParam);
+    }
+
 }

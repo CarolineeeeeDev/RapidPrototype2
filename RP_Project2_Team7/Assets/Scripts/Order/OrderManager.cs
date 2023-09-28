@@ -76,11 +76,7 @@ public class OrderManager : MonoBehaviour
         //UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
         return UnityEngine.Random.Range(0, stringArray.Count);
     }
-    private int ChooseRandomIndex(List<string> stringArray)
-    {
-        //UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
-        return UnityEngine.Random.Range(0, stringArray.Count);
-    }
+
     private int ChooseRandomIndex(string[] stringArray)
     {
         //UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
