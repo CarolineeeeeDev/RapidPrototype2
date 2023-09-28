@@ -55,8 +55,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlurAmountX: 0.002
-    - _BlurAmountY: 0.002
+    - _BlurAmountX: 0.20599912
+    - _BlurAmountY: 0.20599912
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
