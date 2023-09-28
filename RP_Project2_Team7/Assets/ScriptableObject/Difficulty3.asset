@@ -14,15 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
   coffeeStrength:
-  - 'with a strength of 1 '
-  - 'with a strength of 2 '
-  - 'with a strength of 3 '
-  - 'with a strength of 4 '
+  - just give me a light one
+  - with middle strength
+  - I need a strong one but not too strong
+  - need a strong one to wake me up
   ice:
-  - 'with one ice '
-  - 'with two ice '
-  - 'warm '
-  - 'hot '
+  - I don't like iced coffee
+  - middle iced
+  - extra iced
+  - I want a cup full of ice
+  cupSize:
+  - S cup
+  - M cup
+  - L cup
+  - XL cup
   sugar:
   - 'one sugar '
   - 'two sugar '

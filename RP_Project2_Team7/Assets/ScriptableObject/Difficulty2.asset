@@ -14,20 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 5
   coffeeStrength:
-  - '222with a strength of 1 '
-  - '222with a strength of 2 '
-  - '222with a strength of 3 '
-  - '222with a strength of 4 '
+  - just give me the lightest strength
+  - a strength in 2
+  - a strength in 2, no, actually 3
+  - I want the strongest one
   ice:
-  - '222with one ice '
-  - '222with two ice '
-  - '222warm '
-  - '222hot '
+  - lightest ice
+  - few ice
+  - iced but not too much
+  - with the most ice
+  cupSize:
+  - S cup
+  - M cup
+  - L cup
+  - XL cup
   sugar:
-  - '222one sugar '
-  - '222two sugar '
-  - '222three sugar '
-  - '222four sugar '
+  - lightest sugar
+  - two sugar cubes
+  - three sugar cubes
+  - highest level of sugar
   extraMilk: []
   extraFood: []
   introSentences:

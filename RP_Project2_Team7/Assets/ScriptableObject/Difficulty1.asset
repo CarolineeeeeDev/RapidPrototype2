@@ -19,10 +19,15 @@ MonoBehaviour:
   - 'with a strength of 3 '
   - 'with a strength of 4 '
   ice:
-  - 'with one ice '
-  - 'with two ice '
-  - 'warm '
-  - 'hot '
+  - with one ice cube
+  - with two ice cubes
+  - with three ice cubes
+  - with four ice cubes
+  cupSize:
+  - S cup
+  - M cup
+  - L cup
+  - XL cup
   sugar:
   - 'one sugar '
   - 'two sugar '
