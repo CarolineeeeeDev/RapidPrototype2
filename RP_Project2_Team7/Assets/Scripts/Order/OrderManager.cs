@@ -9,16 +9,25 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private GameObject CustomerOrderUI;
     [SerializeField] private GameObject MakeCoffeeUI;
     [SerializeField] private GameObject CustomerResponseUI;
+    [SerializeField] private GameObject ToInitialSpotButton;
+    [SerializeField] private GameObject ToCoffeeSpotButton;
+    [SerializeField] private GameObject cameraManager;
+    [SerializeField] private GameObject CorrectOrderData;
+    [SerializeField]
+    private GameObject missText;
+    [SerializeField]
+    private GameObject coffeeCanvas;
+
     //Order Information List
     //Difficulty One
     [SerializeField]
     private string[] coffeeList = { "Americano", "Black Coffee","Cappuccino","Espresso","Latte", "Macchiato", "Mocha", "Cold Coffee Variety" };
-    // [SerializeField]
-    // private string[] coffeeStrengthList = { "1", "2", "3", "4" };
-    // [SerializeField]
-    // private string[] iceList = { "Iced","Extra Iced","Hot","Extra Hot" };
-    // [SerializeField]
-    // private string[] sugarList = { "one","two","three","four" };
+    // // [SerializeField]
+    // // private string[] coffeeStrengthList = { "1", "2", "3", "4" };
+    // // [SerializeField]
+    // // private string[] iceList = { "Iced","Extra Iced","Hot","Extra Hot" };
+    // // [SerializeField]
+    // // private string[] sugarList = { "one","two","three","four" };
     //private string[] milkList
     //private string[] foodList
 
@@ -31,14 +40,14 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI responseText;
 
     private CoffeeOrder customerOrder=new CoffeeOrder();//CustomerOrderInformation
-
+    private bool isOrderFinished;
     [SerializeField] 
     private List<DifficultyDefinition> difficulties;
     private DifficultyDefinition currentDifficulty;
     private int currentDifficultyIndex;
 
     private int correctOrderCount = 0;
-
+    private int allCorrectOrderCount = 0;
     //right order count
     //will reset when upgrade
     //upgrade to next level count => this can move to difficulty definition
@@ -46,12 +55,14 @@ public class OrderManager : MonoBehaviour
     private void Start()
     {
         CustomerOrderUI.SetActive(true);
-        MakeCoffeeUI.SetActive(true);
+        MakeCoffeeUI.SetActive(false);
         CustomerResponseUI.SetActive(false);
         InvokeRepeating("SpawnCustomerOrder", 0, 15);
         InvokeRepeating("HideCustomerOrderUI", 5, 15);
         currentDifficulty = difficulties[0];
         currentDifficultyIndex = 1;
+        isOrderFinished = true;
+        
     }
 
     private void InitiateOrder()
@@ -65,6 +76,11 @@ public class OrderManager : MonoBehaviour
         //UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
         return UnityEngine.Random.Range(0, stringArray.Count);
     }
+    private int ChooseRandomIndex(List<string> stringArray)
+    {
+        //UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
+        return UnityEngine.Random.Range(0, stringArray.Count);
+    }
     private int ChooseRandomIndex(string[] stringArray)
     {
         //UnityEngine.Random.InitState((int)System.DateTime.Now.Ticks);
@@ -73,9 +89,21 @@ public class OrderManager : MonoBehaviour
     
     private void SpawnCustomerOrder()
     {
+        if(!isOrderFinished)
+        {
+            Instantiate(missText);
+            Debug.Log("Miss!");
+        }
+        isOrderFinished = false;
+        cameraManager.GetComponent<CameraManager>().SetPosition(0);
         CustomerOrderUI.SetActive(true);
-        MakeCoffeeUI.SetActive(true);
+        MakeCoffeeUI.SetActive(false);
+        CustomerResponseUI.SetActive(false);
         InitiateOrder();
+        customerOrder.SetCoffeeStrength(ChooseRandomIndex(currentDifficulty.CoffeeStrength) + 1);
+        customerOrder.SetIce(ChooseRandomIndex(currentDifficulty.Ice) + 1);
+        customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar) + 1);
+        orderText.text = GenerateOrderText(currentDifficultyIndex);
         customerOrder.SetCoffeeStrength(ChooseRandomIndex(currentDifficulty.CoffeeStrength) + 1);
         customerOrder.SetIce(ChooseRandomIndex(currentDifficulty.Ice) + 1);
         customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar) + 1);
@@ -105,11 +133,14 @@ public class OrderManager : MonoBehaviour
     private void HideCustomerOrderUI()
     {
         CustomerOrderUI.SetActive(false);
+        ToCoffeeSpotButton.SetActive(true);
     }
 
 
     public void CheckCoffee()
     {
+        isOrderFinished = true;
+        cameraManager.GetComponent<CameraManager>().SetPosition(0);
         MusicManager.Instance.PlySelectSound();
         MakeCoffeeUI.SetActive(false);
         CustomerResponseUI.SetActive(true);
@@ -128,7 +159,7 @@ public class OrderManager : MonoBehaviour
                 isCorrect = (customerOrder.CoffeeStrength == currentOrder.CoffeeStrength) &&
                             (customerOrder.Ice == currentOrder.Ice) &&
                             (customerOrder.Sugar == currentOrder.Sugar);
-                            //&& extra milk && extra food
+                            //TODO://&& extra milk && extra food
                 break;
             default:
                 break;
@@ -136,6 +167,9 @@ public class OrderManager : MonoBehaviour
         if(isCorrect)
         {
             Debug.Log("Right");
+            allCorrectOrderCount += 1;
+            CorrectOrderData.GetComponent<CorrectOrderData>().SetCorrectOrderCount(allCorrectOrderCount);
+
             responseText.text = currentDifficulty.CorrectSentences[ChooseRandomIndex(currentDifficulty.CorrectSentences)];
             correctOrderCount ++;
             if(correctOrderCount == currentDifficulty.UpgradeOrderCount)
@@ -148,6 +182,7 @@ public class OrderManager : MonoBehaviour
                 }
                 correctOrderCount = 0;
             }
+            
         }
         else
         {
@@ -206,9 +241,9 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
                             ", with " + 
                             currentDifficulty.Sugar[customerOrder.Sugar - 1] +
-                            //Extra Milk
-                            ", and " + 
-                            //Extra food
+                            //TODO:Extra Milk
+                            ", and " +
+                            //TODO:Extra food
                             ". Thank you!";
                 break;
             case 5:
@@ -221,9 +256,9 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
                             ", with " + 
                             currentDifficulty.Sugar[customerOrder.Sugar - 1] +
-                            //Extra Milk
-                            ", and " + 
-                            //Extra food
+                            //TODO:Extra Milk
+                            ", and " +
+                            //TODO:Extra food
                             ". Thank you!";
                 break;
             default:

@@ -7,19 +7,28 @@ using UnityEngine.UI;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] private float deviation = 1e-4f;
+    [SerializeField]
+    private float speed = 0.4f;
     [SerializeField] private Transform initialPostion;
     [SerializeField] private Transform coffeeMakingPosition;
     [SerializeField] private GameObject maincamera;
-    [SerializeField] private Button toInitialSpotButton;
-    [SerializeField] private Button toCoffeeSpotButton;
+    [SerializeField] private GameObject toInitialSpotButton;
+    [SerializeField] private GameObject toCoffeeSpotButton;
     [SerializeField] private GameObject orderManager;
     [SerializeField] private GameObject pillButton;
-    private GameObject orderManagerInGame;
+    [SerializeField] private GameObject MakeCoffeeUI;
+    [SerializeField] private GameObject CoffeeStrengthUI;
+    //MakeCoffeeUI
+    [SerializeField] private GameObject Button1;
+    [SerializeField] private GameObject Button2;
+    [SerializeField] private GameObject Button3;
+    [SerializeField] private GameObject Button4;
+    [SerializeField] private GameObject Button5;
+    [SerializeField] private GameObject Button6;
 
     private int positionIndex;
     private bool isInPosition;
 
-    //[SerializeField] private GameObject CoffeeCanvas;
     private void Start()
     {
         positionIndex = 0;
@@ -27,8 +36,9 @@ public class CameraManager : MonoBehaviour
         pillButton.SetActive(false);
         maincamera.transform.position = initialPostion.position;
         maincamera.transform.rotation = initialPostion.rotation;
-        toInitialSpotButton.gameObject.SetActive(false);
-        toCoffeeSpotButton.gameObject.SetActive(true);
+        toInitialSpotButton.SetActive(false);
+        toCoffeeSpotButton.SetActive(false);
+        MakeCoffeeUI.SetActive(false);
     }
     private void Update()
     {
@@ -37,33 +47,29 @@ public class CameraManager : MonoBehaviour
             switch (positionIndex)
             {
                 case 0://Position 0: Initial position
-                    maincamera.transform.position = Vector3.Lerp(maincamera.transform.position, initialPostion.position, 0.02f);
-                    maincamera.transform.rotation = Quaternion.Slerp(maincamera.transform.rotation, initialPostion.rotation, 0.02f);
+                    maincamera.transform.position = Vector3.Lerp(maincamera.transform.position, initialPostion.position, speed * Time.deltaTime); ;
+                    maincamera.transform.rotation = Quaternion.Slerp(maincamera.transform.rotation, initialPostion.rotation, speed * Time.deltaTime);
                     if (Distance(maincamera.transform, initialPostion) < deviation)
                     {
-                        toInitialSpotButton.gameObject.SetActive(false);
-                        toCoffeeSpotButton.gameObject.SetActive(true);
-                        Debug.Log("in initial position");
-                        pillButton.SetActive(false);
-                        if (orderManagerInGame != null)
-                        {
-                            Destroy(orderManagerInGame);//delete order manager
-                        }
+                        ResetMakeCoffeeUI();
+                        MakeCoffeeUI.SetActive(false);
+                        //Debug.Log("in initial position");
                         isInPosition = true;
                         
                     }
-                    
                     break;
+
                 case 1://Position 1: Coffee making position
-                    maincamera.transform.position = Vector3.Lerp(maincamera.transform.position, coffeeMakingPosition.position, 0.02f);
-                    maincamera.transform.rotation = Quaternion.Slerp(maincamera.transform.rotation, coffeeMakingPosition.rotation, 0.02f);
+                    maincamera.transform.position = Vector3.Lerp(maincamera.transform.position, coffeeMakingPosition.position, speed * Time.deltaTime);
+                    maincamera.transform.rotation = Quaternion.Slerp(maincamera.transform.rotation, coffeeMakingPosition.rotation, speed * Time.deltaTime);
                     if (Distance(maincamera.transform, coffeeMakingPosition) < deviation)
                     {
-                        toInitialSpotButton.gameObject.SetActive(true);
-                        toCoffeeSpotButton.gameObject.SetActive(false);
-                        Debug.Log("in coffee making position");
+                        ResetMakeCoffeeUI();
+                        toCoffeeSpotButton.SetActive(false);
                         pillButton.SetActive(true);
-                        orderManagerInGame = Instantiate(orderManager);//create order manager
+                        MakeCoffeeUI.SetActive(true);
+                        CoffeeStrengthUI.SetActive(true);
+                        //Debug.Log("in coffee making position");
                         isInPosition = true;
                         
                     }
@@ -80,7 +86,18 @@ public class CameraManager : MonoBehaviour
         positionIndex =currentPositionIndex;
         
     }
-
+    private void ResetMakeCoffeeUI()
+    {
+        Button1.GetComponent<ButtonSpriteSwitch>().ResetSprite();
+        Button2.GetComponent<ButtonSpriteSwitch>().ResetSprite();
+        Button3.GetComponent<ButtonSpriteSwitch>().ResetSprite();
+        Button1.SetActive(true);
+        Button2.SetActive(false);
+        Button3.SetActive(false);
+        Button4.SetActive(false);
+        Button5.SetActive(false);
+        Button6.SetActive(false);
+    }
     private float Distance(Transform transform1, Transform transform2)
     {
         Vector3 t=transform1.position - transform2.position;

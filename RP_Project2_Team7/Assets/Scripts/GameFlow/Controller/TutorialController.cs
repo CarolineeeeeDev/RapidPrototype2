@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     private const string _triggerParam = "Game";
 
