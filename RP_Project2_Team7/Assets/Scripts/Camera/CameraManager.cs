@@ -15,7 +15,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private GameObject toInitialSpotButton;
     [SerializeField] private GameObject toCoffeeSpotButton;
     [SerializeField] private GameObject orderManager;
-    [SerializeField] private GameObject pillButton;
     [SerializeField] private GameObject MakeCoffeeUI;
     [SerializeField] private GameObject CoffeeStrengthUI;
     //MakeCoffeeUI
@@ -33,7 +32,6 @@ public class CameraManager : MonoBehaviour
     {
         positionIndex = 0;
         isInPosition = true;
-        pillButton.SetActive(false);
         maincamera.transform.position = initialPostion.position;
         maincamera.transform.rotation = initialPostion.rotation;
         toInitialSpotButton.SetActive(false);
@@ -66,7 +64,6 @@ public class CameraManager : MonoBehaviour
                     {
                         ResetMakeCoffeeUI();
                         toCoffeeSpotButton.SetActive(false);
-                        pillButton.SetActive(true);
                         MakeCoffeeUI.SetActive(true);
                         CoffeeStrengthUI.SetActive(true);
                         //Debug.Log("in coffee making position");

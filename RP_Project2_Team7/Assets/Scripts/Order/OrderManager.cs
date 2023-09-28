@@ -22,14 +22,6 @@ public class OrderManager : MonoBehaviour
     //Difficulty One
     [SerializeField]
     private string[] coffeeList = { "Americano", "Black Coffee","Cappuccino","Espresso","Latte", "Macchiato", "Mocha", "Cold Coffee Variety" };
-    // // [SerializeField]
-    // // private string[] coffeeStrengthList = { "1", "2", "3", "4" };
-    // // [SerializeField]
-    // // private string[] iceList = { "Iced","Extra Iced","Hot","Extra Hot" };
-    // // [SerializeField]
-    // // private string[] sugarList = { "one","two","three","four" };
-    //private string[] milkList
-    //private string[] foodList
 
     //Current Order
     private CoffeeOrder currentOrder=new CoffeeOrder();
@@ -67,8 +59,8 @@ public class OrderManager : MonoBehaviour
 
     private void InitiateOrder()
     {
-        customerOrder.SetOrder( 0, 0, 0);
-        currentOrder.SetOrder( 0, 0, 0);
+        customerOrder.SetOrder( 0, 0, 0, 0);
+        currentOrder.SetOrder( 0, 0, 0, 0);
     }
 
     private int ChooseRandomIndex(List<string> stringArray)
@@ -98,11 +90,15 @@ public class OrderManager : MonoBehaviour
         InitiateOrder();
         customerOrder.SetCoffeeStrength(ChooseRandomIndex(currentDifficulty.CoffeeStrength) + 1);
         customerOrder.SetIce(ChooseRandomIndex(currentDifficulty.Ice) + 1);
+        customerOrder.SetCupSize(ChooseRandomIndex(currentDifficulty.CupSize) + 1);
         customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar) + 1);
+
         orderText.text = GenerateOrderText(currentDifficultyIndex);
         customerOrder.SetCoffeeStrength(ChooseRandomIndex(currentDifficulty.CoffeeStrength) + 1);
         customerOrder.SetIce(ChooseRandomIndex(currentDifficulty.Ice) + 1);
+        customerOrder.SetCupSize(ChooseRandomIndex(currentDifficulty.CupSize) + 1);
         customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar) + 1);
+
         orderText.text = GenerateOrderText(currentDifficultyIndex);
     }
 
@@ -117,6 +113,11 @@ public class OrderManager : MonoBehaviour
     {
         currentOrder.SetIce(currentIce);
         MusicManager.Instance.PlySelectSound();
+    }
+    public void SetCurrentCupSize(int currentCupSize)
+    {
+        currentOrder.SetCupSize(currentCupSize);
+        //MusicManager.Instance.PlySelectSound();
     }
     public void SetCurrentSugar(int currentSugar)
     {
@@ -148,13 +149,13 @@ public class OrderManager : MonoBehaviour
             case 3:
                 isCorrect = (customerOrder.CoffeeStrength == currentOrder.CoffeeStrength) &&
                             (customerOrder.Ice == currentOrder.Ice) &&
-                            (customerOrder.Sugar == currentOrder.Sugar);
+                            (customerOrder.CupSize == currentOrder.CupSize);
                 break;
             case 4:
             case 5:
                 isCorrect = (customerOrder.CoffeeStrength == currentOrder.CoffeeStrength) &&
                             (customerOrder.Ice == currentOrder.Ice) &&
-                            (customerOrder.Sugar == currentOrder.Sugar);
+                            (customerOrder.CupSize == currentOrder.CupSize);
                             //TODO://&& extra milk && extra food
                 break;
             default:
@@ -199,8 +200,8 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
                             ", " + 
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
-                            ", with " + 
-                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            ", " + 
+                            currentDifficulty.CupSize[customerOrder.CupSize - 1] +
                             ". Thank you!";
                 break;
             case 2:
@@ -211,8 +212,8 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
                             ", " + 
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
-                            ", with " + 
-                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            ", " + 
+                            currentDifficulty.CupSize[customerOrder.CupSize - 1] +
                             ". Thank you!";
                 break;
             case 3:
@@ -223,8 +224,8 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
                             ", " + 
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
-                            ", with " + 
-                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            ", " + 
+                            currentDifficulty.CupSize[customerOrder.CupSize - 1] +
                             ". Thank you!";
                 break;
             case 4:
@@ -235,8 +236,8 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
                             ", " + 
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
-                            ", with " + 
-                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            ", " + 
+                            currentDifficulty.CupSize[customerOrder.CupSize - 1] +
                             //TODO:Extra Milk
                             ", and " +
                             //TODO:Extra food
@@ -250,8 +251,8 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
                             ", " + 
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
-                            ", with " + 
-                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
+                            ", " + 
+                            currentDifficulty.CupSize[customerOrder.CupSize - 1] +
                             //TODO:Extra Milk
                             ", and " +
                             //TODO:Extra food
