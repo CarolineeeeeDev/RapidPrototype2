@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d472971b0e5adc4ba204a924769fbcf, type: 3}
+  m_Name: Difficulty5
+  m_EditorClassIdentifier: 
+  upgradeOrderCount: 9999
+  coffeeStrength:
+  - super light, I don't want too much caffeine
+  - not that strong
+  - that's really strong, but not too strong
+  - that's really strong, so I can stay awake
+  ice:
+  - with a little ice, but not too much ice
+  - with a little ice so it's a bit cool
+  - hot but won't hurt my hand
+  - very hot that the liquid is boiling
+  sugar:
+  - just a little bit of sugar
+  - some sugar but not too sweet
+  - some sugar so I can ignore the bitter
+  - a lot of sugar, I like sweet
+  extraMilk: []
+  extraFood: []
+  introSentences:
+  - Good morning, this is the first time I step into the sotre
+  correctSentences:
+  - Thank you very much! Have a nice day!
+  wrongSentences:
+  - You got my order wrong! I'm leaving

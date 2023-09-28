@@ -1,0 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HealthManager : MonoBehaviour
+{
+    private const string _triggerParam = "Result";
+    [SerializeField] private float sanityDecreaseSpeed = 5f;
+    [SerializeField] private float additionInrease = 10f;
+    private float sanity;
+    private float addiction;
+    public Slider healthBar;
+    public Slider addictionBar;
+
+
+    void Start()
+    {
+        sanity = 100f;
+        healthBar.value = sanity;
+        addiction = 0f;
+        addictionBar.value = addiction;
+        EffectManager.Instance.StartBlur();
+        EffectManager.Instance.StartBlendTexture();
+        MusicManager.Instance.StartDrugMode();
+    }
+
+
+
+    void Update()
+    {
+        sanity -= Time.deltaTime * sanityDecreaseSpeed;
+        healthBar.value = sanity;
+
+        //Lose
+        if (sanity <= 0f)
+        {
+            EndGame();
+        }
+
+    }
+
+    //private IEnumerator LoseSanity()
+
+    public void TakePill()
+    {
+        sanity = 100f;
+        addiction += additionInrease;
+        addictionBar.value = addiction;
+        EffectManager.Instance.RestartBlur();
+        EffectManager.Instance.RestartBlendTexture();
+        MusicManager.Instance.RestartDrugMode();
+
+        //Lose
+        if(addiction >= 100f)
+        {
+            EndGame();
+        }
+    }
+
+    public void EndGame()
+    {
+        GameFlow.Instance.Control.SetTrigger(_triggerParam);
+    }
+
+}

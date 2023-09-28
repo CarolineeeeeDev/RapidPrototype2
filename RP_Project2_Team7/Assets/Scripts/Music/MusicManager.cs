@@ -4,20 +4,37 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+#region singleton
+    public static MusicManager Instance;
+    private void Awake() 
+    {
+        if(Instance == null) { Instance = this;}
+        else { Destroy(this); }     
+    }
+#endregion
+    
     [SerializeField]
     private AudioClip musicBase;
     [SerializeField]
     private AudioClip musicNormal;
     [SerializeField]
     private AudioClip musicNoise;
+    [SerializeField]
+    [Range(0.1f, 10f)]
+    private float insaneSpeed = 0.05f;
+    [SerializeField]
+    private AudioSource sfxSource;
 
     [SerializeField]
-    private Sanity sanity;
+    private AudioClip clickButtonSound;
+    [SerializeField]
+    private AudioClip selectSound;
 
     private AudioSource baseAudioSource;
     private AudioSource normalAudioSource;
     private AudioSource noiseAudioSource;
 
+    private Coroutine drugModeCoroutine;
     private void Start() 
     {
         baseAudioSource = gameObject.AddComponent<AudioSource>();
@@ -46,6 +63,22 @@ public class MusicManager : MonoBehaviour
         
     }
 
+    public void PlayClickButton()
+    {
+        PlaySoundEffect(clickButtonSound);
+    }
+
+    public void PlySelectSound()
+    {
+        PlaySoundEffect(selectSound);
+    }
+
+    private void PlaySoundEffect(AudioClip clip)
+    {
+        if(clip == null) { return; }
+        sfxSource.PlayOneShot(clip);
+    }
+
     private void PlayMusic(AudioSource sourceToPlay)
     {
         if(sourceToPlay.clip == null) { return; }
@@ -53,29 +86,44 @@ public class MusicManager : MonoBehaviour
         sourceToPlay.Play();
     }
 
-    private void Update() 
+    public void StartDrugMode()
     {
-        float newSpeed = 2 - (sanity.san * 0.01f);
-        if(newSpeed <= 1.25f) { newSpeed = 1; }
-        baseAudioSource.pitch = newSpeed;
-        normalAudioSource.pitch = newSpeed;
-        noiseAudioSource.pitch = newSpeed;
-
-        float newVolume = 0.75f - (sanity.san * 0.01f);
-        normalAudioSource.volume = 1 - newVolume;
-        noiseAudioSource.volume = newVolume;
+       drugModeCoroutine = StartCoroutine(DrugMode());
     }
 
-   /*  private void AddSpeed(float speedToAdd)
+    public void RestartDrugMode()
     {
-        baseAudioSource.pitch += speedToAdd;
-        normalAudioSource.pitch += speedToAdd;
-        noiseAudioSource.pitch += speedToAdd;
-    }
+        baseAudioSource.pitch = 1;
+        normalAudioSource.pitch = 1;
+        noiseAudioSource.pitch = 1;
 
-    private IEnumerator DrugMode(float length)
+        normalAudioSource.volume = 1;
+        noiseAudioSource.volume = 0;
+
+        if(drugModeCoroutine != null)
+        {
+            StopCoroutine(drugModeCoroutine);
+            drugModeCoroutine = null;
+        }
+        StartDrugMode();
+    }
+    private IEnumerator DrugMode()
     {
-        
+        var san = 100;
+        yield return new WaitForSeconds(2f);
+        while(san >= 0)
+        {
+            float newSpeed = 2 - (san * 0.01f);
+            baseAudioSource.pitch = newSpeed;
+            normalAudioSource.pitch = newSpeed;
+            noiseAudioSource.pitch = newSpeed;
+
+            float newVolume = 0.75f - (san * 0.01f);
+            normalAudioSource.volume = 1 - newVolume;
+            noiseAudioSource.volume = newVolume;
+            san--;
+            yield return new WaitForSeconds(1 / insaneSpeed);
+        }
         yield return null;
-    } */
+    } 
 }
