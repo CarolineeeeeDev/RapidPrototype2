@@ -24,10 +24,10 @@ MonoBehaviour:
   - 'warm '
   - 'hot '
   sugar:
-  - 'one sugar '
-  - 'two sugar '
-  - 'three sugar '
-  - 'four sugar '
+  - 'one cup '
+  - 'two cup '
+  - 'three cup '
+  - 'four cup '
   extraMilk: []
   extraFood: []
   introSentences:

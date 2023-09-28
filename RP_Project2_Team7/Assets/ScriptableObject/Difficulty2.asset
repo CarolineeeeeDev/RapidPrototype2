@@ -25,9 +25,9 @@ MonoBehaviour:
   - I want a hot coffee
   sugar:
   - no sweetness
-  - lightest sugar
-  - three sugar
-  - highest level of sugar
+  - lightest cup
+  - three cup
+  - highest level of cup
   extraMilk: []
   extraFood: []
   introSentences:

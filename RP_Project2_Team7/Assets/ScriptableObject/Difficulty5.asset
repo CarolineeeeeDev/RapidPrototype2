@@ -24,10 +24,10 @@ MonoBehaviour:
   - hot but won't hurt my hand
   - very hot that the liquid is boiling
   sugar:
-  - just a little bit of sugar
-  - some sugar but not too sweet
-  - some sugar so I can ignore the bitter
-  - a lot of sugar, I like sweet
+  - just a little bit of cup
+  - some cup but not too sweet
+  - some cup so I can ignore the bitter
+  - a lot of cup, I like sweet
   extraMilk: []
   extraFood: []
   introSentences:
