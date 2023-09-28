@@ -12,6 +12,7 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private GameObject ToInitialSpotButton;
     [SerializeField] private GameObject ToCoffeeSpotButton;
     [SerializeField] private GameObject cameraManager;
+    [SerializeField] private GameObject CorrectOrderData;
     [SerializeField]
     private GameObject missText;
     [SerializeField]
@@ -46,7 +47,7 @@ public class OrderManager : MonoBehaviour
     private int currentDifficultyIndex;
 
     private int correctOrderCount = 0;
-
+    private int allCorrectOrderCount = 0;
     //right order count
     //will reset when upgrade
     //upgrade to next level count => this can move to difficulty definition
@@ -61,6 +62,7 @@ public class OrderManager : MonoBehaviour
         currentDifficulty = difficulties[0];
         currentDifficultyIndex = 1;
         isOrderFinished = true;
+        
     }
 
     private void InitiateOrder()
@@ -152,6 +154,9 @@ public class OrderManager : MonoBehaviour
         if(isCorrect)
         {
             Debug.Log("Right");
+            allCorrectOrderCount += 1;
+            CorrectOrderData.GetComponent<CorrectOrderData>().SetCorrectOrderCount(allCorrectOrderCount);
+
             responseText.text = currentDifficulty.CorrectSentences[ChooseRandomIndex(currentDifficulty.CorrectSentences)];
             correctOrderCount ++;
             if(correctOrderCount == currentDifficulty.UpgradeOrderCount)
@@ -164,6 +169,7 @@ public class OrderManager : MonoBehaviour
                 }
                 correctOrderCount = 0;
             }
+            
         }
         else
         {
