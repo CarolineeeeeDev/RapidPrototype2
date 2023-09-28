@@ -32,7 +32,16 @@ MonoBehaviour:
   extraFood: []
   introSentences:
   - Good morning, this is the first time I step into the sotre
+  - Hi there
+  - I need coffee!
   correctSentences:
   - Thank you very much! Have a nice day!
+  - I like it!
+  - That's what I want!
+  - Greattt!
   wrongSentences:
   - You got my order wrong! I'm leaving
+  - Hi, I am in a hurry so please make it faster.
+  - Hi, where is my order?
+  - 'I didn''t ask for this one. '
+  - This is not my coffee.

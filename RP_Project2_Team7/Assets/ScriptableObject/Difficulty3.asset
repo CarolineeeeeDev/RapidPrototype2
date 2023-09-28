@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
   coffeeStrength:
-  - 'with a strength of 1 '
-  - 'with a strength of 2 '
-  - 'with a strength of 3 '
-  - 'with a strength of 4 '
+  - I need a strong one, but not too strong
+  - just give me a light one
+  - with middle strength
+  - need a stronge one to wake me up
   ice:
-  - 'with one ice '
-  - 'with two ice '
-  - 'warm '
-  - 'hot '
+  - with less ice
+  - extra hot
+  - I want a cup full of ice
+  - I don't like hot coffee
   sugar:
-  - 'one sugar '
-  - 'two sugar '
-  - 'three sugar '
-  - 'four sugar '
+  - I don't like too sweet
+  - I dont't want it too cold
+  - like in a half
+  - give me the strongest sugar
   extraMilk: []
   extraFood: []
   introSentences:
@@ -36,6 +36,8 @@ MonoBehaviour:
   correctSentences:
   - Thanks!
   - Thank you very much!
+  - That's what I like!
   wrongSentences:
   - I don't like the coffee :(
   - This is not what I ordered!
+  - Did you give me someone else's coffee?

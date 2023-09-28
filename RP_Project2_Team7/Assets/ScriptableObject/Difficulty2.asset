@@ -14,28 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 5
   coffeeStrength:
-  - '222with a strength of 1 '
-  - '222with a strength of 2 '
-  - '222with a strength of 3 '
-  - '222with a strength of 4 '
+  - 'with a strength of 1 '
+  - a strength in 2 or 3
+  - just give me te lightest strength
+  - with a strength of 2
   ice:
-  - '222with one ice '
-  - '222with two ice '
-  - '222warm '
-  - '222hot '
+  - with no ice
+  - I don't like ice
+  - I want a hot coffee
+  - warm
   sugar:
-  - '222one sugar '
-  - '222two sugar '
-  - '222three sugar '
-  - '222four sugar '
+  - no sweetness
+  - highest level of sugar
+  - lightest sugar
+  - one sugar
   extraMilk: []
   extraFood: []
   introSentences:
-  - Hello2
-  - Hi2
+  - Hi there
+  - Morning
+  - How's today?
   correctSentences:
-  - Thanks!2
-  - Thank you very much!2
+  - You got me!
+  - You made what I want!
   wrongSentences:
-  - I don't like the coffee :(2
-  - This is not what I ordered!2
+  - What did you make?
+  - I didn't order this one
