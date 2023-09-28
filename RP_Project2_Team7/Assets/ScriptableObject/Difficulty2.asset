@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 5
   coffeeStrength:
-  - 'with a strength of 1 '
-  - a strength in 2 or 3
   - just give me te lightest strength
-  - with a strength of 2
+  - a strength in 2
+  - a strength in 2 or 3
+  - I want the strongest one
   ice:
   - with no ice
   - I don't like ice
-  - I want a hot coffee
   - warm
+  - I want a hot coffee
   sugar:
   - no sweetness
-  - highest level of sugar
   - lightest sugar
-  - one sugar
+  - three sugar
+  - highest level of sugar
   extraMilk: []
   extraFood: []
   introSentences:

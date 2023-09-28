@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
   coffeeStrength:
-  - I need a strong one, but not too strong
   - just give me a light one
   - with middle strength
+  - I need a strong one, but not too strong
   - need a stronge one to wake me up
   ice:
-  - with less ice
-  - extra hot
   - I want a cup full of ice
   - I don't like hot coffee
+  - with less ice
+  - extra hot
   sugar:
+  - I don't want sweetness
   - I don't like too sweet
-  - I dont't want it too cold
   - like in a half
   - give me the strongest sugar
   extraMilk: []

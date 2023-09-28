@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
   coffeeStrength:
-  - I like the strength between light and strong.
   - It's fine for the strength.
+  - I like the strength between light and strong.
   - hummm, I am sleepy but I might don't want it too strong.
   - I need more shots. I am so sleepy.
   ice:
