@@ -23,6 +23,11 @@ MonoBehaviour:
   - with a little ice so it's a bit cool
   - hot but won't hurt my hand
   - very hot that the liquid is boiling
+  cupSize:
+  - S cup
+  - M cup
+  - L cup
+  - XL cup
   sugar:
   - just a little bit of sugar
   - some sugar but not too sweet

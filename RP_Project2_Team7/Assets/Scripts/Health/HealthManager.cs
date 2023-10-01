@@ -8,14 +8,24 @@ public class HealthManager : MonoBehaviour
     private const string _triggerParam = "Result";
     [SerializeField] private float sanityDecreaseSpeed = 5f;
     [SerializeField] private float additionInrease = 10f;
+    [SerializeField]
+    private Button pillButton;
+    [SerializeField]
+    private Sprite urgentPillSprite;
+    [SerializeField]
+    private Sprite regularPillSprite;
+
+
     private float sanity;
     private float addiction;
     public Slider healthBar;
     public Slider addictionBar;
 
 
+
     void Start()
     {
+
         sanity = 100f;
         healthBar.value = sanity;
         addiction = 0f;
@@ -31,11 +41,19 @@ public class HealthManager : MonoBehaviour
     {
         sanity -= Time.deltaTime * sanityDecreaseSpeed;
         healthBar.value = sanity;
-
+        //pillButton.spriteState = pillButtonStatus;
         //Lose
         if (sanity <= 0f)
         {
             EndGame();
+        }
+        else if (sanity < 30f)
+        {
+            pillButton.image.sprite = urgentPillSprite;
+        }
+        else
+        {
+            pillButton.image.sprite = regularPillSprite;
         }
 
     }

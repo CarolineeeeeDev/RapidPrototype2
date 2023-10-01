@@ -17,6 +17,9 @@ public class DifficultyDefinition : ScriptableObject
     private List<string> ice;
     public List<string> Ice => ice;
     [SerializeField]
+    private List<string> cupSize;
+    public List<string> CupSize => cupSize;
+    [SerializeField]
     private List<string> sugar;
     public List<string> Sugar => sugar;
     [SerializeField]
