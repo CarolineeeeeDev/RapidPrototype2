@@ -9,6 +9,7 @@ public class HealthManager : MonoBehaviour
     //TODO: this should set in difficulty SO
     [SerializeField] private float sanityDecreaseDelay = 0.2f;
     [SerializeField] private float additionInrease = 10f;
+    [SerializeField] private float pillCoolDown = 1f;
     [SerializeField]
     private int urgentPillSanity = 30;
     [SerializeField]
@@ -19,6 +20,8 @@ public class HealthManager : MonoBehaviour
     private int noiseStartSanity = 70;
     [SerializeField]
     private Button pillButton;
+    [SerializeField]
+    private GameObject pillDisableButton;
     [SerializeField]
     private Sprite urgentPillSprite;
     [SerializeField]
@@ -110,6 +113,8 @@ public class HealthManager : MonoBehaviour
         EffectManager.Instance.StopBlur();
         MusicManager.Instance.StopMusicNoise();
 
+        StartCoroutine(PillCoolDown());
+
         //TODO: addiction increase calue set in difficulty SO
         addiction += additionInrease;
         addictionBar.value = addiction;
@@ -118,6 +123,18 @@ public class HealthManager : MonoBehaviour
         {
             EndGame();
         }
+    }
+
+    private IEnumerator PillCoolDown()
+    {
+        if(pillDisableButton == null)
+        {
+            Debug.Log("Pill disable button not assign!");
+            yield break;
+        }
+        pillDisableButton.SetActive(true);
+        yield return new WaitForSeconds(pillCoolDown);
+        pillDisableButton.SetActive(false);
     }
 
     public void EndGame()
