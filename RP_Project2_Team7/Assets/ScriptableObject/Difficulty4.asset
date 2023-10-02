@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Difficulty4
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
+  sanityDecreaseDelay: 0.2
+  addictionIncreaseAmount: 10
+  blurSpeed: 0.001
+  blendSpeed: 0.4
+  noiseSpeed: 5
   coffeeStrength:
   - light strength
   - I like the strength between light and strong

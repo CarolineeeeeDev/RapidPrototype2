@@ -36,6 +36,7 @@ public class OrderManager : MonoBehaviour
     [SerializeField] 
     private List<DifficultyDefinition> difficulties;
     private DifficultyDefinition currentDifficulty;
+    public DifficultyDefinition CurrentDifficulty => currentDifficulty;
     private int currentDifficultyIndex;
 
     private int correctOrderCount = 0;

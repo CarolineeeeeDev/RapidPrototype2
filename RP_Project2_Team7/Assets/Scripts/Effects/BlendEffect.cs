@@ -9,24 +9,19 @@ public class BlendEffect : MonoBehaviour
 
     private Coroutine blendTextureCoroutine;
 
-    [SerializeField]
-    private float opacityDecreaseSpeed;
-
-    public void StartBlendTexture()
-    {
-        blendTextureCoroutine = StartCoroutine(BlendTextureCoroutine());
-    }
-    public void RestartBlendTexture()
+    //[SerializeField]
+    //private float opacityDecreaseSpeed;
+    public void RestartBlendTexture(float opacityDecreaseSpeed)
     {
         if(blendTextureCoroutine != null)
         {
             StopCoroutine(blendTextureCoroutine);
             blendTextureCoroutine = null;
         }
-        blendTextureCoroutine = StartCoroutine(BlendTextureCoroutine());
+        blendTextureCoroutine = StartCoroutine(BlendTextureCoroutine(opacityDecreaseSpeed));
     }
 
-    private IEnumerator BlendTextureCoroutine()
+    private IEnumerator BlendTextureCoroutine(float opacityDecreaseSpeed)
     {
         float opacity = 10f;
         while(opacity >= 0.5)

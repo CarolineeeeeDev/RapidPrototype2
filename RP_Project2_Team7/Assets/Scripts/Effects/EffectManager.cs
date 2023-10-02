@@ -25,32 +25,20 @@ public class EffectManager : MonoBehaviour
         
     }
 
-    public void StartBlur()
+    public void RestartBlur(float blurSpeed)
     {
         if(blurEffect == null) { return; }
-        blurEffect.StartBlur();
-    }
-
-    public void RestartBlur()
-    {
-        if(blurEffect == null) { return; }
-        blurEffect.RestartBlur();
+        blurEffect.RestartBlur(blurSpeed);
     }
 
     public void StopBlur()
     {
         blurEffect.StopBlur();
     }
-
-    public void StartBlendTexture()
+    public void RestartBlendTexture(float opacityDecreaseSpeed)
     {
         if(blendEffect == null) { return; }
-        blendEffect.StartBlendTexture();
-    }
-    public void RestartBlendTexture()
-    {
-        if(blendEffect == null) { return; }
-        blendEffect.RestartBlendTexture();
+        blendEffect.RestartBlendTexture(opacityDecreaseSpeed);
     }
 
     public void StopBlend()

@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
     private const string _triggerParam = "Result";
-    //TODO: this should set in difficulty SO
-    [SerializeField] private float sanityDecreaseDelay = 0.2f;
-    [SerializeField] private float additionInrease = 10f;
+    [SerializeField] private OrderManager orderManager;
+    //Move these to difficulty SO
+    // [SerializeField] private float sanityDecreaseDelay = 0.2f;
+    // [SerializeField] private float additionInrease = 10f;
     [SerializeField] private float pillCoolDown = 1f;
     [SerializeField]
     private int urgentPillSanity = 30;
@@ -72,21 +73,22 @@ public class HealthManager : MonoBehaviour
     {
         sanity = 100;
         pillButton.image.sprite = regularPillSprite;
+        DifficultyDefinition currentDifficulty = orderManager.CurrentDifficulty;
         while(sanity > 0)
         {
             sanity --;
             healthBar.value = sanity;
             if(sanity == blurStartSanity)
             {
-                EffectManager.Instance.RestartBlur();
+                EffectManager.Instance.RestartBlur(currentDifficulty.BlurSpeed);
             }
             if(sanity == blendStartSanity)
             {
-                EffectManager.Instance.RestartBlendTexture();
+                EffectManager.Instance.RestartBlendTexture(currentDifficulty.BlendSpeed);
             }
             if(sanity == noiseStartSanity)
             {
-                MusicManager.Instance.RestartDrugMode();
+                MusicManager.Instance.RestartDrugMode(currentDifficulty.NoiseSpeed);
             }
             if(sanity == urgentPillSanity)
             {
@@ -96,7 +98,7 @@ public class HealthManager : MonoBehaviour
             {
                 EndGame();
             }
-            yield return new WaitForSeconds(sanityDecreaseDelay);
+            yield return new WaitForSeconds(orderManager.CurrentDifficulty.SanityDecreaseDelay);
         }
         yield return null;
     }
@@ -115,9 +117,9 @@ public class HealthManager : MonoBehaviour
 
         StartCoroutine(PillCoolDown());
 
-        //TODO: addiction increase calue set in difficulty SO
-        addiction += additionInrease;
+        addiction += orderManager.CurrentDifficulty.AddictionIncreaseAmount;
         addictionBar.value = addiction;
+        Debug.Log("CURRENT ADDICTION: " + addiction);
         //Lose
         if(addiction >= 100f)
         {

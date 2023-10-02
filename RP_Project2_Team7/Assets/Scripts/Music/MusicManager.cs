@@ -19,9 +19,8 @@ public class MusicManager : MonoBehaviour
     private AudioClip musicNormal;
     [SerializeField]
     private AudioClip musicNoise;
-    [SerializeField]
-    [Range(0.1f, 10f)]
-    private float insaneSpeed = 0.05f;
+    //[SerializeField]
+    //private float noiseIncreaseSpeed = 0.05f;
     [SerializeField]
     private AudioSource sfxSource;
 
@@ -86,9 +85,9 @@ public class MusicManager : MonoBehaviour
         sourceToPlay.Play();
     }
 
-    public void StartDrugMode()
+    public void StartDrugMode(float noiseIncreaseSpeed)
     {
-       drugModeCoroutine = StartCoroutine(DrugMode());
+       drugModeCoroutine = StartCoroutine(DrugMode(noiseIncreaseSpeed));
     }
 
     public void StopMusicNoise()
@@ -99,7 +98,7 @@ public class MusicManager : MonoBehaviour
 
         normalAudioSource.volume = 1;
         noiseAudioSource.volume = 0;
-        
+
         if(drugModeCoroutine != null)
         {
             StopCoroutine(drugModeCoroutine);
@@ -107,12 +106,12 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void RestartDrugMode()
+    public void RestartDrugMode(float noiseIncreaseSpeed)
     {
         StopMusicNoise();
-        StartDrugMode();
+        StartDrugMode(noiseIncreaseSpeed);
     }
-    private IEnumerator DrugMode()
+    private IEnumerator DrugMode(float noiseIncreaseSpeed)
     {
         var san = 100;
         yield return new WaitForSeconds(2f);
@@ -127,7 +126,7 @@ public class MusicManager : MonoBehaviour
             normalAudioSource.volume = 1 - newVolume;
             noiseAudioSource.volume = newVolume;
             san--;
-            yield return new WaitForSeconds(1 / insaneSpeed);
+            yield return new WaitForSeconds(1 / noiseIncreaseSpeed);
         }
         yield return null;
     } 

@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Difficulty1
   m_EditorClassIdentifier: 
   upgradeOrderCount: 2
+  sanityDecreaseDelay: 1
+  addictionIncreaseAmount: 5
+  blurSpeed: 0.001
+  blendSpeed: 0.4
+  noiseSpeed: 3
   coffeeStrength:
   - 'with a strength of 1 '
   - 'with a strength of 2 '

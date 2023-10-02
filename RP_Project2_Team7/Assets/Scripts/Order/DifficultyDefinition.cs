@@ -8,6 +8,25 @@ public class DifficultyDefinition : ScriptableObject
     [SerializeField]
     private int upgradeOrderCount;
     public int UpgradeOrderCount => upgradeOrderCount;
+    [SerializeField]
+    private float sanityDecreaseDelay = 0.4f;
+    public float SanityDecreaseDelay => sanityDecreaseDelay;
+    [SerializeField]
+    private float addictionIncreaseAmount = 5;
+    public float AddictionIncreaseAmount => addictionIncreaseAmount;
+    [Header("Effects")]
+    [SerializeField]
+    private float blurSpeed = 0.4f;
+    public float BlurSpeed => blurSpeed;
+    [SerializeField]
+    private float blendSpeed = 0.4f;
+    public float BlendSpeed => blendSpeed;
+    [SerializeField]
+    [Range(0.1f, 10f)]
+    private float noiseSpeed = 0.05f;
+    public float NoiseSpeed => noiseSpeed;
+
+
     [Header("Random Order")]
 
     [SerializeField]

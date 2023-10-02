@@ -3043,6 +3043,7 @@ MonoBehaviour:
   ToInitialSpotButton: {fileID: 0}
   ToCoffeeSpotButton: {fileID: 0}
   cameraManager: {fileID: 0}
+  CorrectOrderData: {fileID: 0}
   missText: {fileID: 2816044880950934902, guid: 5e49097d0e6903c45bcf993d4d63cc8a,
     type: 3}
   coffeeCanvas: {fileID: 7626914106302557116}
@@ -3059,6 +3060,9 @@ MonoBehaviour:
   responseText: {fileID: 609697538096985260}
   difficulties:
   - {fileID: 11400000, guid: ad01433ea46be4e4f85eeb7944f053c9, type: 2}
+  - {fileID: 11400000, guid: 1378e8b6057cf734e8801528b114234d, type: 2}
+  - {fileID: 11400000, guid: c995bba53ad46ee4887a0ba8af0a9a03, type: 2}
+  - {fileID: 11400000, guid: 77c9fdf29976e154192a519980bb9959, type: 2}
   - {fileID: 11400000, guid: 64a0ad752f6232440a82e36a51f2ab55, type: 2}
 --- !u!1 &6927181526719598118
 GameObject:

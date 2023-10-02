@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Difficulty5
   m_EditorClassIdentifier: 
   upgradeOrderCount: 9999
+  sanityDecreaseDelay: 0.1
+  addictionIncreaseAmount: 15
+  blurSpeed: 0.001
+  blendSpeed: 0.4
+  noiseSpeed: 5
   coffeeStrength:
   - super light, I don't want too much caffeine
   - not that strong
