@@ -91,7 +91,7 @@ public class MusicManager : MonoBehaviour
        drugModeCoroutine = StartCoroutine(DrugMode());
     }
 
-    public void RestartDrugMode()
+    public void StopMusicNoise()
     {
         baseAudioSource.pitch = 1;
         normalAudioSource.pitch = 1;
@@ -99,12 +99,17 @@ public class MusicManager : MonoBehaviour
 
         normalAudioSource.volume = 1;
         noiseAudioSource.volume = 0;
-
+        
         if(drugModeCoroutine != null)
         {
             StopCoroutine(drugModeCoroutine);
             drugModeCoroutine = null;
         }
+    }
+
+    public void RestartDrugMode()
+    {
+        StopMusicNoise();
         StartDrugMode();
     }
     private IEnumerator DrugMode()

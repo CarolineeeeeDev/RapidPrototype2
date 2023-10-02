@@ -6,8 +6,17 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
     private const string _triggerParam = "Result";
-    [SerializeField] private float sanityDecreaseSpeed = 5f;
+    //TODO: this should set in difficulty SO
+    [SerializeField] private float sanityDecreaseDelay = 0.2f;
     [SerializeField] private float additionInrease = 10f;
+    [SerializeField]
+    private int urgentPillSanity = 30;
+    [SerializeField]
+    private int blurStartSanity = 30;
+    [SerializeField]
+    private int blendStartSanity = 70;
+    [SerializeField]
+    private int noiseStartSanity = 70;
     [SerializeField]
     private Button pillButton;
     [SerializeField]
@@ -16,59 +25,94 @@ public class HealthManager : MonoBehaviour
     private Sprite regularPillSprite;
 
 
-    private float sanity;
+    private int sanity;
     private float addiction;
     public Slider healthBar;
     public Slider addictionBar;
+    private Coroutine sanityDropCoroutine;
 
 
 
     void Start()
     {
-
-        sanity = 100f;
+        sanity = 100;
         healthBar.value = sanity;
         addiction = 0f;
         addictionBar.value = addiction;
-        EffectManager.Instance.StartBlur();
-        EffectManager.Instance.StartBlendTexture();
-        MusicManager.Instance.StartDrugMode();
+        sanityDropCoroutine = StartCoroutine(SanityDrop());
     }
 
 
 
     void Update()
     {
-        sanity -= Time.deltaTime * sanityDecreaseSpeed;
-        healthBar.value = sanity;
-        //pillButton.spriteState = pillButtonStatus;
-        //Lose
-        if (sanity <= 0f)
-        {
-            EndGame();
-        }
-        else if (sanity < 30f)
-        {
-            pillButton.image.sprite = urgentPillSprite;
-        }
-        else
-        {
-            pillButton.image.sprite = regularPillSprite;
-        }
+        // //sanity -= Time.deltaTime * sanityDecreaseSpeed;
+        // healthBar.value = sanity;
+        // //pillButton.spriteState = pillButtonStatus;
+        // //Lose
+        // if (sanity <= 0f)
+        // {
+        //     EndGame();
+        // }
+        // else if (sanity < 30f)
+        // {
+        //     pillButton.image.sprite = urgentPillSprite;
+        // }
+        // else
+        // {
+        //     pillButton.image.sprite = regularPillSprite;
+        // }
 
     }
 
-    //private IEnumerator LoseSanity()
+    private IEnumerator SanityDrop()
+    {
+        sanity = 100;
+        pillButton.image.sprite = regularPillSprite;
+        while(sanity > 0)
+        {
+            sanity --;
+            healthBar.value = sanity;
+            if(sanity == blurStartSanity)
+            {
+                EffectManager.Instance.RestartBlur();
+            }
+            if(sanity == blendStartSanity)
+            {
+                EffectManager.Instance.RestartBlendTexture();
+            }
+            if(sanity == noiseStartSanity)
+            {
+                MusicManager.Instance.RestartDrugMode();
+            }
+            if(sanity == urgentPillSanity)
+            {
+                pillButton.image.sprite = urgentPillSprite;
+            }
+            if(sanity <= 0)
+            {
+                EndGame();
+            }
+            yield return new WaitForSeconds(sanityDecreaseDelay);
+        }
+        yield return null;
+    }
 
     public void TakePill()
     {
-        sanity = 100f;
+        if(sanityDropCoroutine != null)
+        {
+            StopCoroutine(sanityDropCoroutine);
+            sanityDropCoroutine = null;
+        }
+        sanityDropCoroutine = StartCoroutine(SanityDrop());
+        EffectManager.Instance.StopBlend();
+        EffectManager.Instance.StopBlur();
+        MusicManager.Instance.StopMusicNoise();
+
+        //TODO: addiction increase calue set in difficulty SO
         addiction += additionInrease;
         addictionBar.value = addiction;
-        EffectManager.Instance.RestartBlur();
-        EffectManager.Instance.RestartBlendTexture();
-        MusicManager.Instance.RestartDrugMode();
-
         //Lose
         if(addiction >= 100f)
         {

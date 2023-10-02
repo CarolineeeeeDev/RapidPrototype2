@@ -41,11 +41,25 @@ public class BlendEffect : MonoBehaviour
         yield return null;
     }
 
-    private void OnDestroy() 
+    private void ResetBlend()
     {
         foreach (var mat in blendMaterials)
         {
             mat.SetFloat("_Opacity", 10);
         }
+    }
+
+    public void StopBlend()
+    {
+        if(blendTextureCoroutine != null)
+        {
+            StopCoroutine(blendTextureCoroutine);
+            blendTextureCoroutine = null;
+        }
+    }
+
+    private void OnDestroy() 
+    {
+        ResetBlend();
     }
 }
