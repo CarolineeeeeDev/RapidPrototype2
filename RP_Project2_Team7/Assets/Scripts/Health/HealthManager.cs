@@ -96,7 +96,7 @@ public class HealthManager : MonoBehaviour
             {
                 EndGame();
             }
-            yield return new WaitForSeconds(sanityDecreaseDelay);
+            yield return new WaitForSeconds(orderManager.CurrentDifficulty.SanityDecreaseDelay);
         }
         yield return null;
     }
@@ -115,9 +115,9 @@ public class HealthManager : MonoBehaviour
 
         StartCoroutine(PillCoolDown());
 
-        //TODO: addiction increase calue set in difficulty SO
-        addiction += additionInrease;
+        addiction += orderManager.CurrentDifficulty.AddictionIncreaseAmount;
         addictionBar.value = addiction;
+        Debug.Log("CURRENT ADDICTION: " + addiction);
         //Lose
         if(addiction >= 100f)
         {

@@ -8,6 +8,12 @@ public class DifficultyDefinition : ScriptableObject
     [SerializeField]
     private int upgradeOrderCount;
     public int UpgradeOrderCount => upgradeOrderCount;
+    [SerializeField]
+    private float sanityDecreaseDelay = 0.4f;
+    public float SanityDecreaseDelay => sanityDecreaseDelay;
+    [SerializeField]
+    private float addictionIncreaseAmount = 5;
+    public float AddictionIncreaseAmount => addictionIncreaseAmount;
     [Header("Random Order")]
 
     [SerializeField]
