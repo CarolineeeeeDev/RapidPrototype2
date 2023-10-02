@@ -16,7 +16,7 @@ MonoBehaviour:
   sanityDecreaseDelay: 1
   addictionIncreaseAmount: 5
   blurSpeed: 0.001
-  blendSpeed: 0.4
+  blendSpeed: 0.02
   noiseSpeed: 2
   coffeeStrength:
   - <color=#6A36FF> with a strength of 1 </color>
