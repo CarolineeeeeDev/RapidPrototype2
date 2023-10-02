@@ -94,12 +94,6 @@ public class OrderManager : MonoBehaviour
         customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar) + 1);
 
         orderText.text = GenerateOrderText(currentDifficultyIndex);
-        customerOrder.SetCoffeeStrength(ChooseRandomIndex(currentDifficulty.CoffeeStrength) + 1);
-        customerOrder.SetIce(ChooseRandomIndex(currentDifficulty.Ice) + 1);
-        customerOrder.SetCupSize(ChooseRandomIndex(currentDifficulty.CupSize) + 1);
-        customerOrder.SetSugar(ChooseRandomIndex(currentDifficulty.Sugar) + 1);
-
-        orderText.text = GenerateOrderText(currentDifficultyIndex);
     }
 
 
