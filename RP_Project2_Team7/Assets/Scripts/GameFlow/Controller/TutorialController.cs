@@ -16,7 +16,8 @@ public class TutorialController : MonoBehaviour
 
     public void NextSlide()
     {
-        if(currentTutorial < tutorialSlides.Count-1)
+        MusicManager.Instance.PlayClickButton();
+        if(currentTutorial < tutorialSlides.Count - 1)
         {
             currentTutorial ++;
             tutorialImage.sprite = tutorialSlides[currentTutorial];
@@ -27,10 +28,20 @@ public class TutorialController : MonoBehaviour
             StartGame();
         }
     }
+
+    public void PreviousSlide()
+    {
+        if(currentTutorial > 0)
+        {
+            currentTutorial--;
+            tutorialImage.sprite = tutorialSlides[currentTutorial];
+            MusicManager.Instance.PlayClickButton();
+
+        }
+    }
     
     private void StartGame()
     {
         GameFlow.Instance.Control.SetTrigger(_triggerParam);
-        MusicManager.Instance.PlayClickButton();
     }
 }
