@@ -7,8 +7,8 @@ public class BlurEffect : MonoBehaviour
 {
     [SerializeField] 
     private Material blurMaterial;
-    [SerializeField]
-    private float blurSpeed = 0.001f;
+    // [SerializeField]
+    // private float blurSpeed = 0.001f;
     [SerializeField]
     private float maxBlur = 0.2f;
 
@@ -54,12 +54,12 @@ public class BlurEffect : MonoBehaviour
         ResetBlur();
     }
 
-    public void StartBlur()
+    public void StartBlur(float blurSpeed)
     {
-        blurCoroutine = StartCoroutine(StartBlurCoroutine());
+        blurCoroutine = StartCoroutine(StartBlurCoroutine(blurSpeed));
     }
 
-    public void RestartBlur()
+    public void RestartBlur(float blurSpeed)
     {
         if(blurCoroutine != null ) 
         { 
@@ -67,19 +67,19 @@ public class BlurEffect : MonoBehaviour
             StopCoroutine(blurCoroutine);
             blurCoroutine = null; 
         }
-        StartBlur();
+        StartBlur(blurSpeed);
     }
 
-    private IEnumerator StartBlurCoroutine()
+    private IEnumerator StartBlurCoroutine(float blurSpeed)
     {
         while(true)
         {
-            ModifyUIBlur(blurSpeed, blurSpeed);
+            ModifyUIBlur(blurSpeed);
             yield return new WaitForSeconds(0.05f);
         }
     }
 
-    private void ModifyUIBlur(float blurXToAdd, float blurYToAdd)
+    private void ModifyUIBlur(float blurXToAdd)
     {
         
         float x = blurMaterial.GetFloat("_BlurAmountX");
