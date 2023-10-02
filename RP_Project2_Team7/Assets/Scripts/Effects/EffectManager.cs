@@ -37,6 +37,11 @@ public class EffectManager : MonoBehaviour
         blurEffect.RestartBlur();
     }
 
+    public void StopBlur()
+    {
+        blurEffect.StopBlur();
+    }
+
     public void StartBlendTexture()
     {
         if(blendEffect == null) { return; }
@@ -46,6 +51,11 @@ public class EffectManager : MonoBehaviour
     {
         if(blendEffect == null) { return; }
         blendEffect.RestartBlendTexture();
+    }
+
+    public void StopBlend()
+    {
+        blendEffect.StopBlend();
     }
 
 }

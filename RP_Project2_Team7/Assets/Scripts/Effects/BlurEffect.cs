@@ -87,6 +87,16 @@ public class BlurEffect : MonoBehaviour
         blurMaterial.SetFloat("_BlurAmountX", add);
     }
 
+    public void StopBlur()
+    {
+        if(blurCoroutine != null ) 
+        { 
+            ResetBlur();
+            StopCoroutine(blurCoroutine);
+            blurCoroutine = null; 
+        }
+    }
+
     private void ResetBlur()
     {
         blurMaterial.SetFloat("_BlurAmountX", 0);
