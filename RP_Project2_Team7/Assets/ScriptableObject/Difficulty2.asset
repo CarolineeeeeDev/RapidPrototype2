@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Difficulty2
   m_EditorClassIdentifier: 
   upgradeOrderCount: 5
+  sanityDecreaseDelay: 0.5
+  addictionIncreaseAmount: 5
+  blurSpeed: 0.001
+  blendSpeed: 0.4
+  noiseSpeed: 5
   coffeeStrength:
   - just give me the lightest strength
   - a strength in 2
