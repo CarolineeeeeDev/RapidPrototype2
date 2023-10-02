@@ -17,22 +17,22 @@ MonoBehaviour:
   addictionIncreaseAmount: 5
   blurSpeed: 0.001
   blendSpeed: 0.4
-  noiseSpeed: 3
+  noiseSpeed: 2
   coffeeStrength:
-  - 'with a strength of 1 '
-  - 'with a strength of 2 '
-  - 'with a strength of 3 '
-  - 'with a strength of 4 '
+  - <color=#6A36FF> with a strength of 1 </color>
+  - <color=#6A36FF> with a strength of 2 </color>
+  - <color=#6A36FF> with a strength of 3 </color>
+  - <color=#6A36FF> with a strength of 4 </color>
   ice:
-  - with one ice cube
-  - with two ice cubes
-  - with three ice cubes
-  - with four ice cubes
+  - with <color=#6A36FF>one ice cube </color>
+  - with <color=#6A36FF>two ice cubes </color>
+  - with <color=#6A36FF>three ice cubes </color>
+  - with <color=#6A36FF>four ice cubes </color>
   cupSize:
-  - S cup
-  - M cup
-  - L cup
-  - XL cup
+  - <color=#6A36FF> S cup </color>
+  - <color=#6A36FF> M cup </color>
+  - <color=#6A36FF> L cup </color>
+  - <color=#6A36FF> XL cup </color>
   sugar:
   - 'one sugar '
   - 'two sugar '
@@ -41,8 +41,8 @@ MonoBehaviour:
   extraMilk: []
   extraFood: []
   introSentences:
-  - Hello
-  - Hi
+  - 'Hello! '
+  - 'Hi! '
   correctSentences:
   - Thanks!
   - Thank you very much!
