@@ -16,7 +16,7 @@ MonoBehaviour:
   sanityDecreaseDelay: 0.5
   addictionIncreaseAmount: 5
   blurSpeed: 0.001
-  blendSpeed: 0.4
+  blendSpeed: 0.02
   noiseSpeed: 5
   coffeeStrength:
   - just give me the lightest strength

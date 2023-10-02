@@ -46,6 +46,7 @@ public class BlendEffect : MonoBehaviour
 
     public void StopBlend()
     {
+        ResetBlend();
         if(blendTextureCoroutine != null)
         {
             StopCoroutine(blendTextureCoroutine);
