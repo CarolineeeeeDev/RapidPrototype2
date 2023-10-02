@@ -12,6 +12,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private Transform initialPostion;
     [SerializeField] private Transform coffeeMakingPosition;
     [SerializeField] private GameObject maincamera;
+    [SerializeField] private GameObject followCamera;
     [SerializeField] private GameObject toInitialSpotButton;
     [SerializeField] private GameObject toCoffeeSpotButton;
     [SerializeField] private GameObject orderManager;
@@ -34,6 +35,8 @@ public class CameraManager : MonoBehaviour
         isInPosition = true;
         maincamera.transform.position = initialPostion.position;
         maincamera.transform.rotation = initialPostion.rotation;
+        followCamera.transform.position = maincamera.transform.position;
+        followCamera.transform.rotation = maincamera.transform.rotation;
         toInitialSpotButton.SetActive(false);
         toCoffeeSpotButton.SetActive(false);
         MakeCoffeeUI.SetActive(false);
@@ -47,6 +50,8 @@ public class CameraManager : MonoBehaviour
                 case 0://Position 0: Initial position
                     maincamera.transform.position = Vector3.Lerp(maincamera.transform.position, initialPostion.position, speed * Time.deltaTime); ;
                     maincamera.transform.rotation = Quaternion.Slerp(maincamera.transform.rotation, initialPostion.rotation, speed * Time.deltaTime);
+                    followCamera.transform.position = maincamera.transform.position;
+                    followCamera.transform.rotation = maincamera.transform.rotation;
                     if (Distance(maincamera.transform, initialPostion) < deviation)
                     {
                         ResetMakeCoffeeUI();
@@ -60,6 +65,8 @@ public class CameraManager : MonoBehaviour
                 case 1://Position 1: Coffee making position
                     maincamera.transform.position = Vector3.Lerp(maincamera.transform.position, coffeeMakingPosition.position, speed * Time.deltaTime);
                     maincamera.transform.rotation = Quaternion.Slerp(maincamera.transform.rotation, coffeeMakingPosition.rotation, speed * Time.deltaTime);
+                    followCamera.transform.position = maincamera.transform.position;
+                    followCamera.transform.rotation = maincamera.transform.rotation;
                     if (Distance(maincamera.transform, coffeeMakingPosition) < deviation)
                     {
                         ResetMakeCoffeeUI();
