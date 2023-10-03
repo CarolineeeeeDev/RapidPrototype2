@@ -21,8 +21,8 @@ MonoBehaviour:
   ice:
   - 'with one ice '
   - 'with two ice '
-  - 'warm '
-  - 'hot '
+  - with three ice
+  - with four ice
   sugar:
   - 'one cup '
   - 'two cup '

@@ -19,10 +19,10 @@ MonoBehaviour:
   - a strength in 2 or 3
   - I want the strongest one
   ice:
-  - with no ice
   - I don't like ice
-  - warm
-  - I want a hot coffee
+  - just little ice
+  - more than a little ice
+  - I want more ice
   sugar:
   - no sweetness
   - lightest cup
