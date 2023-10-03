@@ -28,7 +28,11 @@ MonoBehaviour:
   - just little ice
   - more than a little ice
   - I want a cup full of ice
-  cupSize: []
+  cupSize:
+  - S cup
+  - M cup
+  - L cup
+  - XL cup
   sugar:
   - I don't want sweetness
   - I don't like too sweet

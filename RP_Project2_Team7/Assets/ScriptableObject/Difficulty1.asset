@@ -19,21 +19,25 @@ MonoBehaviour:
   blendSpeed: 0.01
   noiseSpeed: 2.5
   coffeeStrength:
-  - 'with a strength of 1 '
-  - 'with a strength of 2 '
-  - 'with a strength of 3 '
-  - 'with a strength of 4 '
+  - <color=#6A36ff>with a strength of 1 </color>
+  - <color=#6A36ff>with a strength of 2</color>
+  - <color=#6A36ff>with a strength of 3</color>
+  - <color=#6A36ff>with a strength of 4</color>
   ice:
-  - 'with one ice '
-  - 'with two ice '
-  - with three ice
-  - with four ice
-  cupSize: []
+  - <color=#6A36ff>with one ice </color>
+  - <color=#6A36ff>with two ice </color>
+  - <color=#6A36ff>with three ice</color>
+  - <color=#6A36ff>with four ice</color>
+  cupSize:
+  - <color=#6A36ff>S Cup</color>
+  - <color=#6A36ff>M Cup</color>
+  - <color=#6A36ff>L Cup</color>
+  - <color=#6A36ff>XL Cup</color>
   sugar:
-  - 'one cup '
-  - 'two cup '
-  - 'three cup '
-  - 'four cup '
+  - <color=#6A36ff>no sweetness</color>
+  - <color=#6A36ff>I don't like too sweet</color>
+  - <color=#6A36ff>I don't want it too sweet but I still need some sweetness </color>
+  - <color=#6A36ff>I need sweetness </color>
   extraMilk: []
   extraFood: []
   introSentences:

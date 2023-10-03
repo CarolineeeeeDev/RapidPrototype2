@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 648280401}
-  m_IndirectSpecularColor: {r: 0.1778777, g: 0.22269411, b: 0.3048223, a: 1}
+  m_IndirectSpecularColor: {r: 0.17789918, g: 0.22273572, b: 0.30487037, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5327,6 +5327,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 26639815119033414, guid: 7c9d5b31e7f49ad4580147cfd2565fde,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26639815119033414, guid: 7c9d5b31e7f49ad4580147cfd2565fde,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26639815119033414, guid: 7c9d5b31e7f49ad4580147cfd2565fde,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 26639815119033414, guid: 7c9d5b31e7f49ad4580147cfd2565fde,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 150481178436139943, guid: 7c9d5b31e7f49ad4580147cfd2565fde,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5457,6 +5477,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826850128140895889, guid: 7c9d5b31e7f49ad4580147cfd2565fde,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3826850128140895889, guid: 7c9d5b31e7f49ad4580147cfd2565fde,
         type: 3}

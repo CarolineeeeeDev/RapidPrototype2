@@ -19,21 +19,25 @@ MonoBehaviour:
   blendSpeed: 0.01
   noiseSpeed: 3
   coffeeStrength:
-  - just give me te lightest strength
-  - a strength in 2
-  - a strength in 2 or 3
-  - I want the strongest one
+  - <color=#6A36ff>just give me te lightest strength</color>
+  - <color=#6A36ff>a strength in 2</color>
+  - <color=#6A36ff>a strength in 3</color>
+  - <color=#6A36ff>I want the strongest one</color>
   ice:
-  - I don't like ice
-  - just little ice
-  - more than a little ice
-  - I want more ice
-  cupSize: []
+  - <color=#6A36ff>I don't like ice</color>
+  - <color=#6A36ff>just little ice</color>
+  - <color=#6A36ff>more than a little ice</color>
+  - <color=#6A36ff>I want more ice</color>
+  cupSize:
+  - <color=#6A36ff>S cup</color>
+  - <color=#6A36ff>M cup</color>
+  - <color=#6A36ff>L cup</color>
+  - <color=#6A36ff>XL cup</color>
   sugar:
-  - no sweetness
-  - lightest cup
-  - three cup
-  - highest level of cup
+  - <color=#6A36ff>no sweetness</color>
+  - <color=#6A36ff>lightest cup</color>
+  - <color=#6A36ff>three cup</color>
+  - <color=#6A36ff>highest level of cup</color>
   extraMilk: []
   extraFood: []
   introSentences:

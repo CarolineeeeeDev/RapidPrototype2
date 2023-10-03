@@ -28,7 +28,11 @@ MonoBehaviour:
   - with ice but not too cold
   - 2/3 cup of ice
   - between cold and hot
-  cupSize: []
+  cupSize:
+  - S cup
+  - M cup
+  - L cup
+  - XL cup
   sugar:
   - less cup
   - like 25% sweetness
