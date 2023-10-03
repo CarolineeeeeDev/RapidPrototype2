@@ -17,6 +17,7 @@ public class EndScreenData : MonoBehaviour
         {
             countText.text = "You finished " + Convert.ToString(GameObject.Find("CorrectOrderData").GetComponent<CorrectOrderData>().CorrectOrderCount) + " order";
         }
+        Destroy(GameObject.Find("CorrectOrderData"));
         
     }
 
