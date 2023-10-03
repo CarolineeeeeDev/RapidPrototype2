@@ -37,6 +37,7 @@ public class HealthManager : MonoBehaviour
     public Slider addictionBar;
     private Coroutine sanityDropCoroutine;
 
+    private float BlendCount = 1;
 
 
     void Start()
@@ -88,10 +89,10 @@ public class HealthManager : MonoBehaviour
             {
                 EffectManager.Instance.RestartStageTwoBlur(currentDifficulty.StageTwoblurSpeed);
             }
-            if(sanity == blendStartSanity)
+            /* if(sanity == blendStartSanity)
             {
                 EffectManager.Instance.RestartBlendTexture(currentDifficulty.BlendSpeed);
-            }
+            } */
             if(sanity == noiseStartSanity)
             {
                 MusicManager.Instance.RestartDrugMode(currentDifficulty.NoiseSpeed);
@@ -117,9 +118,11 @@ public class HealthManager : MonoBehaviour
             sanityDropCoroutine = null;
         }
         sanityDropCoroutine = StartCoroutine(SanityDrop());
-        EffectManager.Instance.StopBlend();
+        //EffectManager.Instance.StopBlend();
         EffectManager.Instance.StopBlur();
         MusicManager.Instance.StopMusicNoise();
+        BlendCount += 0.075f;
+        EffectManager.Instance.AddBlend(orderManager.CurrentDifficulty.AddictionIncreaseAmount * orderManager.CurrentDifficulty.BlendSpeed * BlendCount);
 
         StartCoroutine(PillCoolDown());
 
