@@ -15,8 +15,9 @@ MonoBehaviour:
   upgradeOrderCount: 1
   sanityDecreaseDelay: 0.25
   addictionIncreaseAmount: 5
-  blurSpeed: 0.002
-  blendSpeed: 0.01
+  stageOneblurSpeed: 0.0002
+  stageTwoblurSpeed: 0.001
+  blendSpeed: 0.005
   noiseSpeed: 3
   coffeeStrength:
   - <color=#6A36ff>just give me te lightest strength</color>

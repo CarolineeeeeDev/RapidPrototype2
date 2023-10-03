@@ -15,8 +15,9 @@ MonoBehaviour:
   upgradeOrderCount: 3
   sanityDecreaseDelay: 0.2
   addictionIncreaseAmount: 10
-  blurSpeed: 0.005
-  blendSpeed: 0.02
+  stageOneblurSpeed: 0.0002
+  stageTwoblurSpeed: 0.001
+  blendSpeed: 0.05
   noiseSpeed: 4
   coffeeStrength:
   - It's fine for the strength.

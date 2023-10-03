@@ -15,8 +15,9 @@ MonoBehaviour:
   upgradeOrderCount: 2
   sanityDecreaseDelay: 0.25
   addictionIncreaseAmount: 10
-  blurSpeed: 0.002
-  blendSpeed: 0.02
+  stageOneblurSpeed: 0.0002
+  stageTwoblurSpeed: 0.001
+  blendSpeed: 0.075
   noiseSpeed: 3.5
   coffeeStrength:
   - just give me a light one

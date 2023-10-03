@@ -15,8 +15,9 @@ MonoBehaviour:
   upgradeOrderCount: 9999
   sanityDecreaseDelay: 0.1
   addictionIncreaseAmount: 15
-  blurSpeed: 0.005
-  blendSpeed: 0.02
+  stageOneblurSpeed: 0.0002
+  stageTwoblurSpeed: 0.001
+  blendSpeed: 0.1
   noiseSpeed: 5
   coffeeStrength:
   - super light, I don't want too much caffeine
