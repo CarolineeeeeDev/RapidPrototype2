@@ -103,15 +103,18 @@ public class OrderManager : MonoBehaviour
     {
         currentOrder.SetCoffeeStrength(currentCoffeeBean);
         MusicManager.Instance.PlySelectSound();
+        MusicManager.Instance.PlayStrengthSound();
     }
     public void SetCurrentIce(int currentIce)
     {
         currentOrder.SetIce(currentIce);
         MusicManager.Instance.PlySelectSound();
+        MusicManager.Instance.PlayIceSound();
     }
     public void SetCurrentCupSize(int currentCupSize)
     {
         currentOrder.SetCupSize(currentCupSize);
+        MusicManager.Instance.PlayCupSound();
         //MusicManager.Instance.PlySelectSound();
     }
     public void SetCurrentSugar(int currentSugar)
@@ -134,6 +137,7 @@ public class OrderManager : MonoBehaviour
         isOrderFinished = true;
         cameraManager.GetComponent<CameraManager>().SetPosition(0);
         MusicManager.Instance.PlySelectSound();
+        MusicManager.Instance.PlayFinishCoffeeSound();
         MakeCoffeeUI.SetActive(false);
         CustomerResponseUI.SetActive(true);
         bool isCorrect = false;
