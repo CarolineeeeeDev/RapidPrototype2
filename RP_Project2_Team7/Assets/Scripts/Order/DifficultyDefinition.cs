@@ -16,8 +16,11 @@ public class DifficultyDefinition : ScriptableObject
     public float AddictionIncreaseAmount => addictionIncreaseAmount;
     [Header("Effects")]
     [SerializeField]
-    private float blurSpeed = 0.4f;
-    public float BlurSpeed => blurSpeed;
+    private float stageOneblurSpeed = 0.0002f;
+    public float StageOneblurSpeed => stageOneblurSpeed;
+    [SerializeField]
+    private float stageTwoblurSpeed = 0.001f;
+    public float StageTwoblurSpeed => stageTwoblurSpeed;
     [SerializeField]
     private float blendSpeed = 0.4f;
     public float BlendSpeed => blendSpeed;

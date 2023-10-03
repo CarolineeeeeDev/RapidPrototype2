@@ -14,7 +14,9 @@ public class HealthManager : MonoBehaviour
     [SerializeField]
     private int urgentPillSanity = 30;
     [SerializeField]
-    private int blurStartSanity = 30;
+    private int blurStageTwoStartSanity = 30;
+    [SerializeField]
+    private int blurStageOneStartSanity = 90;
     [SerializeField]
     private int blendStartSanity = 70;
     [SerializeField]
@@ -78,9 +80,13 @@ public class HealthManager : MonoBehaviour
         {
             sanity --;
             healthBar.value = sanity;
-            if(sanity == blurStartSanity)
+            if(sanity == blurStageOneStartSanity)
             {
-                EffectManager.Instance.RestartBlur(currentDifficulty.BlurSpeed);
+                EffectManager.Instance.RestartStageOneBlur(currentDifficulty.StageOneblurSpeed);
+            }
+            if(sanity == blurStageTwoStartSanity)
+            {
+                EffectManager.Instance.RestartStageTwoBlur(currentDifficulty.StageTwoblurSpeed);
             }
             if(sanity == blendStartSanity)
             {
