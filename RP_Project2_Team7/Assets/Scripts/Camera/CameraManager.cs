@@ -22,9 +22,6 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private GameObject Button1;
     [SerializeField] private GameObject Button2;
     [SerializeField] private GameObject Button3;
-    [SerializeField] private GameObject Button4;
-    [SerializeField] private GameObject Button5;
-    [SerializeField] private GameObject Button6;
 
     private int positionIndex;
     private bool isInPosition;
@@ -98,9 +95,7 @@ public class CameraManager : MonoBehaviour
         Button1.SetActive(true);
         Button2.SetActive(false);
         Button3.SetActive(false);
-        Button4.SetActive(false);
-        Button5.SetActive(false);
-        Button6.SetActive(false);
+
     }
     private float Distance(Transform transform1, Transform transform2)
     {
