@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Difficulty5
   m_EditorClassIdentifier: 
   upgradeOrderCount: 9999
-  sanityDecreaseDelay: 0.1
+  sanityDecreaseDelay: 0.2
   addictionIncreaseAmount: 15
-  blurSpeed: 0.001
+  blurSpeed: 0.04
   blendSpeed: 0.02
   noiseSpeed: 5
   coffeeStrength:

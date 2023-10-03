@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Difficulty4
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
+  sanityDecreaseDelay: 0.4
+  addictionIncreaseAmount: 10
+  blurSpeed: 0.03
+  blendSpeed: 0.02
+  noiseSpeed: 4
   coffeeStrength:
   - It's fine for the strength.
   - I like the strength between light and strong.
@@ -23,6 +28,7 @@ MonoBehaviour:
   - with ice but not too cold
   - 2/3 cup of ice
   - between cold and hot
+  cupSize: []
   sugar:
   - less cup
   - like 25% sweetness

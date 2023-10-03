@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Difficulty3
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
+  sanityDecreaseDelay: 0.5
+  addictionIncreaseAmount: 10
+  blurSpeed: 0.02
+  blendSpeed: 0.02
+  noiseSpeed: 3.5
   coffeeStrength:
   - just give me a light one
   - with middle strength
@@ -20,9 +25,10 @@ MonoBehaviour:
   - need a stronge one to wake me up
   ice:
   - I don't like ice coffee
-  - 'I want '
-  - 
+  - just little ice
+  - more than a little ice
   - I want a cup full of ice
+  cupSize: []
   sugar:
   - I don't want sweetness
   - I don't like too sweet

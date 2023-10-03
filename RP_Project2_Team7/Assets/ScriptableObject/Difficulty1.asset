@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Difficulty1
   m_EditorClassIdentifier: 
   upgradeOrderCount: 2
+  sanityDecreaseDelay: 1
+  addictionIncreaseAmount: 5
+  blurSpeed: 0.01
+  blendSpeed: 0.01
+  noiseSpeed: 2.5
   coffeeStrength:
   - 'with a strength of 1 '
   - 'with a strength of 2 '
@@ -23,6 +28,7 @@ MonoBehaviour:
   - 'with two ice '
   - with three ice
   - with four ice
+  cupSize: []
   sugar:
   - 'one cup '
   - 'two cup '
