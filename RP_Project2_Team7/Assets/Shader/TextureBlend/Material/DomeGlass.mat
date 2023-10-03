@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CoffeeMachine
+  m_Name: DomeGlass
   m_Shader: {fileID: -6465566751694194690, guid: e1bed87dc19722c46b85ab3a8bdab9f2,
     type: 3}
   m_Parent: {fileID: 0}
@@ -25,11 +25,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Base:
-        m_Texture: {fileID: 2800000, guid: d34eb6e2256bb4aa7a8326ce3c8dba31, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9d3f93f85c6e045bfa0c2c4261c5d4da, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Layer1:
-        m_Texture: {fileID: 2800000, guid: 2922308209f414a5896f94232f205362, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0233f957f0eb84a71ba10f52102e5f7a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
