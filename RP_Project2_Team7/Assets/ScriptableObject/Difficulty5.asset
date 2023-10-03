@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Difficulty5
   m_EditorClassIdentifier: 
   upgradeOrderCount: 9999
-  sanityDecreaseDelay: 0.2
+  sanityDecreaseDelay: 0.1
   addictionIncreaseAmount: 15
-  blurSpeed: 0.04
+  blurSpeed: 0.005
   blendSpeed: 0.02
   noiseSpeed: 5
   coffeeStrength:
@@ -30,9 +30,9 @@ MonoBehaviour:
   - very hot that the liquid is boiling
   cupSize:
   - S cup
-  - M cup
-  - L cup
-  - XL cup
+  - S cup
+  - S cup
+  - S cup
   sugar:
   - just a little bit of cup
   - some cup but not too sweet

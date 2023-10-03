@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d472971b0e5adc4ba204a924769fbcf, type: 3}
   m_Name: Difficulty1
   m_EditorClassIdentifier: 
-  upgradeOrderCount: 2
-  sanityDecreaseDelay: 1
+  upgradeOrderCount: 1
+  sanityDecreaseDelay: 0.5
   addictionIncreaseAmount: 5
-  blurSpeed: 0.01
+  blurSpeed: 0.001
   blendSpeed: 0.01
   noiseSpeed: 2.5
   coffeeStrength:
