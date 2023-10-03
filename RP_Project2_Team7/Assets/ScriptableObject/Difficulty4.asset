@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d472971b0e5adc4ba204a924769fbcf, type: 3}
   m_Name: Difficulty4
   m_EditorClassIdentifier: 
-  upgradeOrderCount: 7
-  sanityDecreaseDelay: 0.4
+  upgradeOrderCount: 3
+  sanityDecreaseDelay: 0.2
   addictionIncreaseAmount: 10
-  blurSpeed: 0.03
-  blendSpeed: 0.02
+  stageOneblurSpeed: 0.0002
+  stageTwoblurSpeed: 0.001
+  blendSpeed: 0.05
   noiseSpeed: 4
   coffeeStrength:
   - It's fine for the strength.
