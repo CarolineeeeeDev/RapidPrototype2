@@ -17,7 +17,7 @@ MonoBehaviour:
   addictionIncreaseAmount: 15
   stageOneblurSpeed: 0.0002
   stageTwoblurSpeed: 0.001
-  blendSpeed: 0.1
+  blendSpeed: 0.0375
   noiseSpeed: 5
   coffeeStrength:
   - super light, I don't want too much caffeine

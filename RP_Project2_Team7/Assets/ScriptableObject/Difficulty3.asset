@@ -17,7 +17,7 @@ MonoBehaviour:
   addictionIncreaseAmount: 10
   stageOneblurSpeed: 0.0002
   stageTwoblurSpeed: 0.001
-  blendSpeed: 0.075
+  blendSpeed: 0.0375
   noiseSpeed: 3.5
   coffeeStrength:
   - just give me a light one
