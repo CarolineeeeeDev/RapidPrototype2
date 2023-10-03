@@ -13,39 +13,30 @@ MonoBehaviour:
   m_Name: Difficulty2
   m_EditorClassIdentifier: 
   upgradeOrderCount: 5
-  sanityDecreaseDelay: 0.5
-  addictionIncreaseAmount: 5
-  blurSpeed: 0.001
-  blendSpeed: 0.02
-  noiseSpeed: 5
   coffeeStrength:
-  - just give me the lightest strength
+  - just give me te lightest strength
   - a strength in 2
-  - a strength in 2, no, actually 3
+  - a strength in 2 or 3
   - I want the strongest one
   ice:
-  - lightest ice
-  - few ice
-  - iced but not too much
-  - with the most ice
-  cupSize:
-  - S cup
-  - M cup
-  - L cup
-  - XL cup
+  - I don't like ice
+  - just little ice
+  - more than a little ice
+  - I want more ice
   sugar:
-  - lightest sugar
-  - two sugar cubes
-  - three sugar cubes
-  - highest level of sugar
+  - no sweetness
+  - lightest cup
+  - three cup
+  - highest level of cup
   extraMilk: []
   extraFood: []
   introSentences:
-  - Hello2
-  - Hi2
+  - Hi there
+  - Morning
+  - How's today?
   correctSentences:
-  - Thanks!2
-  - Thank you very much!2
+  - You got me!
+  - You made what I want!
   wrongSentences:
-  - I don't like the coffee :(2
-  - This is not what I ordered!2
+  - What did you make?
+  - I didn't order this one

@@ -13,31 +13,21 @@ MonoBehaviour:
   m_Name: Difficulty3
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
-  sanityDecreaseDelay: 0.2
-  addictionIncreaseAmount: 7
-  blurSpeed: 0.001
-  blendSpeed: 0.02
-  noiseSpeed: 5
   coffeeStrength:
   - just give me a light one
   - with middle strength
-  - I need a strong one but not too strong
-  - need a strong one to wake me up
+  - I need a strong one, but not too strong
+  - need a stronge one to wake me up
   ice:
-  - I don't like iced coffee
-  - middle iced
-  - extra iced
+  - I don't like ice coffee
+  - 'I want '
+  - 
   - I want a cup full of ice
-  cupSize:
-  - S cup
-  - M cup
-  - L cup
-  - XL cup
   sugar:
-  - 'one sugar '
-  - 'two sugar '
-  - 'three sugar '
-  - 'four sugar '
+  - I don't want sweetness
+  - I don't like too sweet
+  - like in a half
+  - give me the strongest cup
   extraMilk: []
   extraFood: []
   introSentences:
@@ -46,6 +36,8 @@ MonoBehaviour:
   correctSentences:
   - Thanks!
   - Thank you very much!
+  - That's what I like!
   wrongSentences:
   - I don't like the coffee :(
   - This is not what I ordered!
+  - Did you give me someone else's coffee?

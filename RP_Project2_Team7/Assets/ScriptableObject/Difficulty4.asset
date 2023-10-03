@@ -13,39 +13,34 @@ MonoBehaviour:
   m_Name: Difficulty4
   m_EditorClassIdentifier: 
   upgradeOrderCount: 7
-  sanityDecreaseDelay: 0.2
-  addictionIncreaseAmount: 10
-  blurSpeed: 0.001
-  blendSpeed: 0.02
-  noiseSpeed: 5
   coffeeStrength:
-  - light strength
-  - I like the strength between light and strong
-  - strong strength
-  - strongest strength
+  - It's fine for the strength.
+  - I like the strength between light and strong.
+  - hummm, I am sleepy but I might don't want it too strong.
+  - I need more shots. I am so sleepy.
   ice:
   - 'with one ice '
-  - 'with two ice '
-  - 'warm '
-  - 'hot '
-  cupSize:
-  - S cup
-  - M cup
-  - L cup
-  - XL cup
+  - with ice but not too cold
+  - 2/3 cup of ice
+  - between cold and hot
   sugar:
-  - 'one sugar '
-  - 'two sugar '
-  - 'three sugar '
-  - 'four sugar '
+  - less cup
+  - like 25% sweetness
+  - I don't want it too sweet but I still need some sweetness
+  - I need sweetness
   extraMilk: []
   extraFood: []
   introSentences:
   - Hello
   - Hi
+  - Morning
+  - Good to be here
   correctSentences:
   - Thanks!
   - Thank you very much!
+  - You got my coffee!
+  - That's my shot!
   wrongSentences:
   - I don't like the coffee :(
   - This is not what I ordered!
+  - Did you give me the wrong order?
