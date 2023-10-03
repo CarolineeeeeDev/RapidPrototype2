@@ -45,11 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c75ef9aadaee60408e05fd87cb2e708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxSource: {fileID: 8829584011280046357}
   musicBase: {fileID: 8300000, guid: 0584115f9d04d414499c7303acc3c124, type: 3}
   musicNormal: {fileID: 8300000, guid: 5cd1fc1f332f72a4aa3a116acc741920, type: 3}
   musicNoise: {fileID: 8300000, guid: 908f4aa6d22b6c143a28c1852251c563, type: 3}
-  insaneSpeed: 5
-  sfxSource: {fileID: 8829584011280046357}
+  strengthSound: {fileID: 8300000, guid: de04ee60a7a1937438652e69dbce7c45, type: 3}
+  iceSound: {fileID: 8300000, guid: dac4e7cf80546d543a5619275b06a962, type: 3}
+  cupSound: {fileID: 8300000, guid: 29b279a698619eb4fbe8633a83ae0b4f, type: 3}
+  FinishCoffeeSound: {fileID: 8300000, guid: 9400460ae381cd746b09287d977451f8, type: 3}
   clickButtonSound: {fileID: 8300000, guid: b342af949351ecc43aa30bb90c1f2dee, type: 3}
   selectSound: {fileID: 8300000, guid: ebb6156d7e04f6940a1d152e4e451143, type: 3}
 --- !u!82 &8829584011280046357
