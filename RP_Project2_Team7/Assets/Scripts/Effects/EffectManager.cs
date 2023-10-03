@@ -51,4 +51,14 @@ public class EffectManager : MonoBehaviour
         blendEffect.StopBlend();
     }
 
+    public void ResetBlend()
+    {
+        blendEffect.ResetBlend();
+    }
+
+    public void AddBlend(float addAmount)
+    {
+        blendEffect.AddBlend(addAmount);
+    }
+
 }

@@ -23,7 +23,7 @@ public class BlendEffect : MonoBehaviour
 
     private IEnumerator BlendTextureCoroutine(float opacityDecreaseSpeed)
     {
-        float opacity = 10f;
+        float opacity = 8f;
         while(opacity >= 0.5)
         {
             foreach (var mat in blendMaterials)
@@ -36,11 +36,23 @@ public class BlendEffect : MonoBehaviour
         yield return null;
     }
 
-    private void ResetBlend()
+    public void ResetBlend()
     {
         foreach (var mat in blendMaterials)
         {
-            mat.SetFloat("_Opacity", 10);
+            mat.SetFloat("_Opacity", 8);
+        }
+    }
+
+    public void AddBlend(float addAmount)
+    {
+        foreach (var mat in blendMaterials)
+        {
+            float opacity = mat.GetFloat("_Opacity");
+            if(opacity - addAmount >= 0.5)
+            {
+                mat.SetFloat("_Opacity", opacity - addAmount);
+            }
         }
     }
 
