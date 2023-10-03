@@ -12,17 +12,28 @@ public class MusicManager : MonoBehaviour
         else { Destroy(this); }     
     }
 #endregion
+    [SerializeField]
+    private AudioSource sfxSource;
     
+    [Header("Music")]
     [SerializeField]
     private AudioClip musicBase;
     [SerializeField]
     private AudioClip musicNormal;
     [SerializeField]
     private AudioClip musicNoise;
+
+    [Header("SFX")]
+    [SerializeField]
+    private AudioClip strengthSound;
+    [SerializeField]
+    private AudioClip iceSound;
+    [SerializeField]
+    private AudioClip cupSound;
+    [SerializeField]
+    private AudioClip FinishCoffeeSound;
     //[SerializeField]
     //private float noiseIncreaseSpeed = 0.05f;
-    [SerializeField]
-    private AudioSource sfxSource;
 
     [SerializeField]
     private AudioClip clickButtonSound;
@@ -70,6 +81,23 @@ public class MusicManager : MonoBehaviour
     public void PlySelectSound()
     {
         PlaySoundEffect(selectSound);
+    }
+
+    public void PlayStrengthSound()
+    {
+        PlaySoundEffect(strengthSound);
+    }
+    public void PlayIceSound()
+    {
+        PlaySoundEffect(iceSound);
+    }
+    public void PlayCupSound()
+    {
+        PlaySoundEffect(cupSound);
+    }
+    public void PlayFinishCoffeeSound()
+    {
+        PlaySoundEffect(FinishCoffeeSound);
     }
 
     private void PlaySoundEffect(AudioClip clip)

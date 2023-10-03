@@ -25,15 +25,20 @@ public class EffectManager : MonoBehaviour
         
     }
 
-    public void RestartBlur(float blurSpeed)
+    public void RestartStageOneBlur(float blurSpeed)
     {
         if(blurEffect == null) { return; }
-        blurEffect.RestartBlur(blurSpeed);
+        blurEffect.RestartStageOneBlur(blurSpeed);
+    }
+    public void RestartStageTwoBlur(float blurSpeed)
+    {
+        if(blurEffect == null) { return; }
+        blurEffect.RestartStageTwoBlur(blurSpeed);
     }
 
     public void StopBlur()
     {
-        blurEffect.StopBlur();
+        blurEffect.StopBlur(false);
     }
     public void RestartBlendTexture(float opacityDecreaseSpeed)
     {
