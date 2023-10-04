@@ -488,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 168.9, y: 302.8}
+  m_AnchoredPosition: {x: 210.2, y: 261.1}
   m_SizeDelta: {x: 1365, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685099267
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[You died of drug abuse]'
+  m_text: You died of drug abuse
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19c166bed401afd4b9abfe1bfebb45ec, type: 2}
   m_sharedMaterial: {fileID: 5840509123072248495, guid: 19c166bed401afd4b9abfe1bfebb45ec,
@@ -908,8 +908,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.8, y: 121}
-  m_SizeDelta: {x: 493.9, y: 50}
+  m_AnchoredPosition: {x: 37.8, y: 71.6}
+  m_SizeDelta: {x: 776.18, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1486359161
 MonoBehaviour:
@@ -931,7 +931,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[score text]'
+  m_text: You finished {num} orders
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19c166bed401afd4b9abfe1bfebb45ec, type: 2}
   m_sharedMaterial: {fileID: 5840509123072248495, guid: 19c166bed401afd4b9abfe1bfebb45ec,

@@ -29,6 +29,8 @@ public class HealthManager : MonoBehaviour
     private Sprite urgentPillSprite;
     [SerializeField]
     private Sprite regularPillSprite;
+    [SerializeField]
+    private Image fillArea;
 
 
     private int sanity;
@@ -49,29 +51,6 @@ public class HealthManager : MonoBehaviour
         sanityDropCoroutine = StartCoroutine(SanityDrop());
     }
 
-
-
-    void Update()
-    {
-        // //sanity -= Time.deltaTime * sanityDecreaseSpeed;
-        // healthBar.value = sanity;
-        // //pillButton.spriteState = pillButtonStatus;
-        // //Lose
-        // if (sanity <= 0f)
-        // {
-        //     EndGame();
-        // }
-        // else if (sanity < 30f)
-        // {
-        //     pillButton.image.sprite = urgentPillSprite;
-        // }
-        // else
-        // {
-        //     pillButton.image.sprite = regularPillSprite;
-        // }
-
-    }
-
     private IEnumerator SanityDrop()
     {
         sanity = 100;
@@ -89,10 +68,7 @@ public class HealthManager : MonoBehaviour
             {
                 EffectManager.Instance.RestartStageTwoBlur(currentDifficulty.StageTwoblurSpeed);
             }
-            /* if(sanity == blendStartSanity)
-            {
-                EffectManager.Instance.RestartBlendTexture(currentDifficulty.BlendSpeed);
-            } */
+
             if(sanity == noiseStartSanity)
             {
                 MusicManager.Instance.RestartDrugMode(currentDifficulty.NoiseSpeed);
@@ -153,4 +129,18 @@ public class HealthManager : MonoBehaviour
         GameFlow.Instance.Control.SetTrigger(_triggerParam);
     }
 
+    private IEnumerator CompleteOrderEffect()
+    {
+        fillArea.color = Color.green;
+        yield return new WaitForSeconds(1);
+        fillArea.color = new Color(81f / 255f, 166f / 255f, 1, 1);
+    }
+    public void CompleteOrder()
+    {
+        sanity += 5;
+        
+        StartCoroutine(CompleteOrderEffect());
+    }
+
+    
 }

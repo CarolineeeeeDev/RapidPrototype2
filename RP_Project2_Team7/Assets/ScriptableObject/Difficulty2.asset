@@ -26,21 +26,19 @@ MonoBehaviour:
   - <color=#6A36ff>I want the strongest one</color>
   ice:
   - <color=#6A36ff>I don't like ice</color>
-  - <color=#6A36ff>just little ice</color>
+  - <color=#6A36ff>a little ice</color>
   - <color=#6A36ff>more than a little ice</color>
-  - <color=#6A36ff>I want more ice</color>
+  - <color=#6A36ff>I want the most ice</color>
   cupSize:
   - <color=#6A36ff>S cup</color>
   - <color=#6A36ff>M cup</color>
   - <color=#6A36ff>L cup</color>
   - <color=#6A36ff>XL cup</color>
   sugar:
-  - <color=#6A36ff>no sweetness</color>
-  - <color=#6A36ff>lightest cup</color>
-  - <color=#6A36ff>three cup</color>
-  - <color=#6A36ff>highest level of cup</color>
-  extraMilk: []
-  extraFood: []
+  - null
+  - null
+  - null
+  - null
   introSentences:
   - Hi there
   - Morning

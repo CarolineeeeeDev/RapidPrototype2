@@ -25,22 +25,20 @@ MonoBehaviour:
   - I need a strong one, but not too strong
   - need a stronge one to wake me up
   ice:
-  - I don't like ice coffee
-  - just little ice
+  - I don't like iced coffee
+  - a little ice
   - more than a little ice
   - I want a cup full of ice
   cupSize:
-  - S cup
-  - M cup
-  - L cup
-  - XL cup
+  - smallest cup
+  - midium cup
+  - large cup
+  - largest cup
   sugar:
-  - I don't want sweetness
-  - I don't like too sweet
-  - like in a half
-  - give me the strongest cup
-  extraMilk: []
-  extraFood: []
+  - null
+  - null
+  - null
+  - null
   introSentences:
   - Hello
   - Hi

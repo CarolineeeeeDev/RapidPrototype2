@@ -9,7 +9,6 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private GameObject CustomerOrderUI;
     [SerializeField] private GameObject MakeCoffeeUI;
     [SerializeField] private GameObject CustomerResponseUI;
-    [SerializeField] private GameObject ToInitialSpotButton;
     [SerializeField] private GameObject ToCoffeeSpotButton;
     [SerializeField] private GameObject cameraManager;
     [SerializeField] private GameObject CorrectOrderData;
@@ -17,6 +16,7 @@ public class OrderManager : MonoBehaviour
     private GameObject missText;
     [SerializeField]
     private GameObject coffeeCanvas;
+    [SerializeField] private GameObject healthManager;
 
     //Order Information List
     //Difficulty One
@@ -38,6 +38,7 @@ public class OrderManager : MonoBehaviour
     private DifficultyDefinition currentDifficulty;
     public DifficultyDefinition CurrentDifficulty => currentDifficulty;
     private int currentDifficultyIndex;
+    public int CurrentDifficultyIndex => currentDifficultyIndex;
 
     private int correctOrderCount = 0;
     private int allCorrectOrderCount = 0;
@@ -50,8 +51,8 @@ public class OrderManager : MonoBehaviour
         CustomerOrderUI.SetActive(true);
         MakeCoffeeUI.SetActive(false);
         CustomerResponseUI.SetActive(false);
-        InvokeRepeating("SpawnCustomerOrder", 0, 15);
-        InvokeRepeating("HideCustomerOrderUI", 5, 15);
+        InvokeRepeating("SpawnCustomerOrder", 0, 60);
+        InvokeRepeating("HideCustomerOrderUI", 5, 60);
         currentDifficulty = difficulties[0];
         currentDifficultyIndex = 1;
         isOrderFinished = true;
@@ -154,8 +155,8 @@ public class OrderManager : MonoBehaviour
             case 5:
                 isCorrect = (customerOrder.CoffeeStrength == currentOrder.CoffeeStrength) &&
                             (customerOrder.Ice == currentOrder.Ice) &&
-                            (customerOrder.CupSize == currentOrder.CupSize);
-                            //TODO://&& extra milk && extra food
+                            (customerOrder.CupSize == currentOrder.CupSize)&&
+                            (customerOrder.Sugar == currentOrder.Sugar);
                 break;
             default:
                 break;
@@ -163,6 +164,7 @@ public class OrderManager : MonoBehaviour
         if(isCorrect)
         {
             Debug.Log("Right");
+            healthManager.GetComponent<HealthManager>().CompleteOrder();
             allCorrectOrderCount += 1;
             CorrectOrderData.GetComponent<CorrectOrderData>().SetCorrectOrderCount(allCorrectOrderCount);
 
@@ -185,6 +187,10 @@ public class OrderManager : MonoBehaviour
             Debug.Log("Wrong");
             responseText.text = currentDifficulty.WrongSentences[ChooseRandomIndex(currentDifficulty.WrongSentences)];
         }
+        CancelInvoke("SpawnCustomerOrder");
+        CancelInvoke("HideCustomerOrderUI");
+        InvokeRepeating("SpawnCustomerOrder", 5, 60);
+        InvokeRepeating("HideCustomerOrderUI", 10, 60);
     }
     private string GenerateOrderText(int difficulty)
     {
@@ -193,7 +199,7 @@ public class OrderManager : MonoBehaviour
         {
             case 1:
                 orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
-                            "I would like a " + 
+                            "! I would like a " + 
                             coffeeList[ChooseRandomIndex(coffeeList)] +
                             " " + 
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
@@ -205,7 +211,7 @@ public class OrderManager : MonoBehaviour
                 break;
             case 2:
                 orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
-                            "I would like a " +
+                            "! I would like a " +
                             coffeeList[ChooseRandomIndex(coffeeList)] +
                             " " + 
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
@@ -217,7 +223,7 @@ public class OrderManager : MonoBehaviour
                 break;
             case 3:
                 orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
-                            "I would like a " +
+                            "! I would like a " +
                             coffeeList[ChooseRandomIndex(coffeeList)] +
                             " " + 
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
@@ -229,7 +235,7 @@ public class OrderManager : MonoBehaviour
                 break;
             case 4:
                 orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
-                            "I would like a " + 
+                            "! I would like a " + 
                             coffeeList[ChooseRandomIndex(coffeeList)] +
                             " " + 
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
@@ -237,14 +243,13 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
                             ", " + 
                             currentDifficulty.CupSize[customerOrder.CupSize - 1] +
-                            //TODO:Extra Milk
                             ", and " +
-                            //TODO:Extra food
+                            currentDifficulty.Sugar[customerOrder.Sugar - 1]+
                             ". Thank you!";
                 break;
             case 5:
                 orderText = currentDifficulty.IntroSentences[ChooseRandomIndex(currentDifficulty.IntroSentences)] +
-                            "I would like a " +
+                            "! I would like a " +
                             coffeeList[ChooseRandomIndex(coffeeList)] +
                             " " + 
                             currentDifficulty.CoffeeStrength[customerOrder.CoffeeStrength - 1] + 
@@ -252,9 +257,8 @@ public class OrderManager : MonoBehaviour
                             currentDifficulty.Ice[customerOrder.Ice - 1] +
                             ", " + 
                             currentDifficulty.CupSize[customerOrder.CupSize - 1] +
-                            //TODO:Extra Milk
                             ", and " +
-                            //TODO:Extra food
+                            currentDifficulty.Sugar[customerOrder.Sugar - 1] +
                             ". Thank you!";
                 break;
             default:

@@ -31,16 +31,14 @@ MonoBehaviour:
   - very hot that the liquid is boiling
   cupSize:
   - S cup
-  - S cup
-  - S cup
-  - S cup
+  - S cup, oh wait, M cup
+  - S cup, oh wait, L cup
+  - S cup, oh wait, XL cup
   sugar:
-  - just a little bit of cup
-  - some cup but not too sweet
-  - some cup so I can ignore the bitter
-  - a lot of cup, I like sweet
-  extraMilk: []
-  extraFood: []
+  - the least sugar
+  - more than a little sugar
+  - enough sugar so I can ignore the bitter
+  - a lot of sugar, I like sweetness
   introSentences:
   - Good morning, this is the first time I step into the sotre
   - Hi there
