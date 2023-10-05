@@ -45,12 +45,18 @@ public class TutorialController : MonoBehaviour
 
         }
     }
+
+    private IEnumerator StartGameCoroutine()
+    {
+        tutorialCanvas.SetActive(false);
+        orderManager.StartOrder();
+        healthManager.RestartSanity();
+        yield return null;
+        //healthManager.RestartSanity();
+    }
     
     private void StartGame()
     {
-        //GameFlow.Instance.Control.SetTrigger(_triggerParam);
-        tutorialCanvas.SetActive(false);
-        healthManager.RestartSanity();
-        orderManager.StartOrder();
+        StartCoroutine(StartGameCoroutine());
     }
 }
