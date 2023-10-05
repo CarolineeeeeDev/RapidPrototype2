@@ -22,6 +22,7 @@ MonoBehaviour:
   stageOneflashCount: 3
   stageTwoflashCount: 5
   blendSpeed: 0.0375
+  uiBlendSpeed: 0.05
   noiseSpeed: 2.5
   coffeeStrength:
   - <color=#6A36ff>with a strength of 1 </color>

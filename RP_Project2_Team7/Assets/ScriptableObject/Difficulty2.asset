@@ -22,34 +22,35 @@ MonoBehaviour:
   stageOneflashCount: 3
   stageTwoflashCount: 5
   blendSpeed: 0.0375
+  uiBlendSpeed: 0.05
   noiseSpeed: 3
   coffeeStrength:
-  - <color=#6A36ff>just give me te lightest strength</color>
-  - <color=#6A36ff>a strength in 2</color>
-  - <color=#6A36ff>a strength in 3</color>
-  - <color=#6A36ff>I want the strongest one</color>
+  - <color=#6A36ff>just give me the lightest strength</color>
+  - <color=#6A36ff>a strength of 2</color>
+  - <color=#6A36ff>a strength of 3</color>
+  - <color=#6A36ff>I want it the strongest it can be</color>
   ice:
   - <color=#6A36ff>I don't like ice</color>
   - <color=#6A36ff>a little ice</color>
-  - <color=#6A36ff>more than a little ice</color>
-  - <color=#6A36ff>I want the most ice</color>
+  - <color=#6A36ff>like 3 cubes of ice</color>
+  - <color=#6A36ff>a ton of ice</color>
   cupSize:
-  - <color=#6A36ff>S cup</color>
-  - <color=#6A36ff>M cup</color>
-  - <color=#6A36ff>L cup</color>
-  - <color=#6A36ff>XL cup</color>
+  - <color=#6A36ff>in an S cup</color>
+  - <color=#6A36ff>in a M cup</color>
+  - <color=#6A36ff>in a L cup</color>
+  - <color=#6A36ff>in an XL cup</color>
   sugar:
   - null
   - null
   - null
   - null
   introSentences:
-  - Hi there
-  - Morning
-  - How's today?
+  - 'Hi there '
+  - 'Morning, '
+  - 'How''s it going? '
   correctSentences:
-  - You got me!
-  - You made what I want!
+  - You totally get me!
+  - You made it exactly how I like it!
   wrongSentences:
-  - What did you make?
-  - I didn't order this one
+  - What is this trash that you made?
+  - I didn't order this one, jeez, what a waste of money....

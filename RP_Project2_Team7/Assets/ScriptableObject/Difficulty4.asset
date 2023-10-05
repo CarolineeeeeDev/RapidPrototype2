@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 3
   sanityDecreaseDelay: 0.2
-  addictionIncreaseAmount: 10
+  addictionIncreaseAmount: 5
   stageOneblurSpeed: 0.0002
   stageTwoblurSpeed: 0.001
   stageOneflashSpeed: 200
@@ -22,32 +22,33 @@ MonoBehaviour:
   stageOneflashCount: 3
   stageTwoflashCount: 5
   blendSpeed: 0.0375
+  uiBlendSpeed: 0.05
   noiseSpeed: 4
   coffeeStrength:
-  - light strength
-  - I like the strength between light and strong
-  - hummm, I am sleepy but I might don't want it too strong
-  - I need the most shots. I am so sleepy
+  - a light brew
+  - I would like the strength between light and strong
+  - hmmm, I'm sleepy....but I don't want it tooooo strong
+  - I need as many shots as possible, I'm so tired
   ice:
-  - 'with one ice '
-  - with ice but not too cold
-  - 2/3 cup of ice
-  - coolest one
+  - with one ice cube, just one
+  - with ice but not like, not too cold ya know
+  - 2/3 cups of ice
+  - enough ice for a brain freeze
   cupSize:
   - small cup
-  - larger than a small cup
-  - smaller than a XL cup
-  - largest cup
+  - 12oz cup
+  - oh the size below extra large
+  - and a venti
   sugar:
-  - the least sugar
-  - more than a little sugar
+  - the least amount of sugar you can do
+  - like 2 teaspoons of sugar
   - sweet but not too much
-  - more sugar will be better
+  - drown it in sugar
   introSentences:
-  - Hello
-  - Hi
-  - Morning
-  - Good to be here
+  - 'Hello '
+  - 'Hi '
+  - 'Morning! '
+  - 'Good morning! Glad I made it! '
   correctSentences:
   - Thanks!
   - Thank you very much!
@@ -55,5 +56,5 @@ MonoBehaviour:
   - That's my shot!
   wrongSentences:
   - I don't like the coffee :(
-  - This is not what I ordered!
+  - This is liquid trash.
   - Did you give me the wrong order?

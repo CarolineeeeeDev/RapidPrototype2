@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 2
   sanityDecreaseDelay: 0.25
-  addictionIncreaseAmount: 10
+  addictionIncreaseAmount: 5
   stageOneblurSpeed: 0.0002
   stageTwoblurSpeed: 0.001
   stageOneflashSpeed: 200
@@ -22,30 +22,31 @@ MonoBehaviour:
   stageOneflashCount: 3
   stageTwoflashCount: 5
   blendSpeed: 0.0375
+  uiBlendSpeed: 0.05
   noiseSpeed: 3.5
   coffeeStrength:
   - just give me a light one
-  - with middle strength
-  - I need a strong one, but not too strong
-  - need a stronge one to wake me up
+  - with level 2 strength
+  - I want something strong, but not too strong
+  - I need a strongest brew you've got
   ice:
-  - I don't like iced coffee
+  - I don't like iced coffee, blegh
   - a little ice
-  - more than a little ice
+  - more than a little ice, but not a ton
   - I want a cup full of ice
   cupSize:
-  - smallest cup
-  - midium cup
-  - large cup
-  - largest cup
+  - smallest cup size
+  - medium cup size
+  - large cup size
+  - largest cup size
   sugar:
   - null
   - null
   - null
   - null
   introSentences:
-  - Hello
-  - Hi
+  - 'Hello '
+  - 'Hi '
   correctSentences:
   - Thanks!
   - Thank you very much!

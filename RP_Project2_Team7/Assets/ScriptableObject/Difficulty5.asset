@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeOrderCount: 9999
   sanityDecreaseDelay: 0.1
-  addictionIncreaseAmount: 15
+  addictionIncreaseAmount: 10
   stageOneblurSpeed: 0.0002
   stageTwoblurSpeed: 0.001
   stageOneflashSpeed: 200
@@ -22,6 +22,7 @@ MonoBehaviour:
   stageOneflashCount: 3
   stageTwoflashCount: 5
   blendSpeed: 0.0375
+  uiBlendSpeed: 0.05
   noiseSpeed: 5
   coffeeStrength:
   - super light, I don't want too much caffeine
