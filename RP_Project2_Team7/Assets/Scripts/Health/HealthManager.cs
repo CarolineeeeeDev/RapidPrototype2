@@ -100,7 +100,7 @@ public class HealthManager : MonoBehaviour
         EffectManager.Instance.StopBlur();
         MusicManager.Instance.StopMusicNoise();
         BlendCount += 0.075f;
-        EffectManager.Instance.AddBlend(orderManager.CurrentDifficulty.AddictionIncreaseAmount * orderManager.CurrentDifficulty.BlendSpeed * BlendCount);
+        EffectManager.Instance.AddBlend(orderManager.CurrentDifficulty.AddictionIncreaseAmount * orderManager.CurrentDifficulty.BlendSpeed * BlendCount, orderManager.CurrentDifficulty.UIBlendSpeed);
 
         StartCoroutine(PillCoolDown());
 

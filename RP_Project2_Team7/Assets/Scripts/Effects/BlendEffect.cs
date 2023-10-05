@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BlendEffect : MonoBehaviour
 {
     [SerializeField]
     private List<Material> blendMaterials;
+    [SerializeField]
+    private List<Image> blendImages;
 
     private Coroutine blendTextureCoroutine;
 
@@ -31,6 +34,12 @@ public class BlendEffect : MonoBehaviour
                 mat.SetFloat("_Opacity", opacity);
             }
             opacity -= opacityDecreaseSpeed;
+            Color blueColor = new Color(0,0,5);
+            foreach (var img in blendImages)
+            {
+                
+                img.color += blueColor;
+            }
             yield return new WaitForSeconds(0.1f);
         }
         yield return null;
@@ -42,9 +51,13 @@ public class BlendEffect : MonoBehaviour
         {
             mat.SetFloat("_Opacity", 8);
         }
+        foreach (var img in blendImages)
+        {
+            img.color = Color.white;
+        }
     }
 
-    public void AddBlend(float addAmount)
+    public void AddBlend(float addAmount, float uiAddAmount)
     {
         foreach (var mat in blendMaterials)
         {
@@ -53,6 +66,12 @@ public class BlendEffect : MonoBehaviour
             {
                 mat.SetFloat("_Opacity", opacity - addAmount);
             }
+        }
+        foreach (var img in blendImages)
+        {
+            Color blueColor = img.color;
+            blueColor.a = blueColor.a - uiAddAmount;
+            img.color = blueColor;
         }
     }
 
