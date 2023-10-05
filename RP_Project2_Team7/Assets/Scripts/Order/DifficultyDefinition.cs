@@ -37,6 +37,9 @@ public class DifficultyDefinition : ScriptableObject
     private float blendSpeed = 0.4f;
     public float BlendSpeed => blendSpeed;
     [SerializeField]
+    private float uiBlendSpeed = 0.05f;
+    public float UIBlendSpeed => uiBlendSpeed;
+    [SerializeField]
     [Range(0.1f, 10f)]
     private float noiseSpeed = 0.05f;
     public float NoiseSpeed => noiseSpeed;

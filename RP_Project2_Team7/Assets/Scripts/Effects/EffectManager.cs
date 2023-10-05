@@ -62,9 +62,9 @@ public class EffectManager : MonoBehaviour
     //     blendEffect.ResetBlend();
     // }
 
-    public void AddBlend(float addAmount)
+    public void AddBlend(float addAmount, float uiAddAmount)
     {
-        blendEffect.AddBlend(addAmount);
+        blendEffect.AddBlend(addAmount, uiAddAmount);
     }
 #endregion
 
