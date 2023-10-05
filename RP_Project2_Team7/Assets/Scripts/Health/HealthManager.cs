@@ -63,10 +63,12 @@ public class HealthManager : MonoBehaviour
             if(sanity == blurStageOneStartSanity)
             {
                 EffectManager.Instance.RestartStageOneBlur(currentDifficulty.StageOneblurSpeed);
+                EffectManager.Instance.RestartFlash(currentDifficulty.StageOneFlashSpeed, currentDifficulty.StageOneFlashCount);
             }
             if(sanity == blurStageTwoStartSanity)
             {
                 EffectManager.Instance.RestartStageTwoBlur(currentDifficulty.StageTwoblurSpeed);
+                EffectManager.Instance.RestartFlash(currentDifficulty.StageTwoFlashSpeed, currentDifficulty.StageTwoFlashCount);
             }
 
             if(sanity == noiseStartSanity)
