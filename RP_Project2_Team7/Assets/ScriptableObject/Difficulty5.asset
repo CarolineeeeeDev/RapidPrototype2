@@ -27,35 +27,35 @@ MonoBehaviour:
   coffeeStrength:
   - super light, I don't want too much caffeine
   - not that strong
-  - that's really strong, but not too strong
-  - that's really strong, so I can stay awake
+  - okay like, really strong, but not too strong
+  - extremely strong so I can stay awake
   ice:
-  - with a little ice, but not too much ice
-  - with a little ice so it's a bit cool
-  - hot but won't hurt my hand
-  - very hot that the liquid is boiling
+  - with a little ice, well.... maybe even less
+  - with a little ice so it's chilled
+  - like sommmme ice, idk,
+  - I want a good brain freeze, so all the ice you have
   cupSize:
-  - S cup
-  - S cup, oh wait, M cup
-  - S cup, oh wait, L cup
-  - S cup, oh wait, XL cup
+  - small cup
+  - small cup, oh wait, make that a medium cup
+  - a small, oh well...... a large
+  - okay like a large, no, an EXTRA large
   sugar:
-  - the least sugar
-  - more than a little sugar
-  - enough sugar so I can ignore the bitter
-  - a lot of sugar, I like sweetness
+  - Just a teaspon of sugar
+  - a little bit of sugar, but not too little
+  - enough sugar so I can ignore the bitterness
+  - a lot of sugar, I like it sweet
   introSentences:
-  - Good morning, this is the first time I step into the sotre
-  - Hi there
-  - I need coffee!
+  - Good morning, this is my first time here. I uhhhhhhhhhhhhhhh......
+  - 'Hi there '
+  - 'I need coffee! '
   correctSentences:
   - Thank you very much! Have a nice day!
   - I like it!
-  - That's what I want!
-  - Greattt!
+  - Now that's what I'm talking about!!
+  - This tastes great thanks!
   wrongSentences:
-  - You got my order wrong! I'm leaving
-  - Hi, I am in a hurry so please make it faster.
-  - Hi, where is my order?
-  - 'I didn''t ask for this one. '
-  - This is not my coffee.
+  - You got my order wrong! I'm leaving!
+  - I'm in a hurry and you got it WRONG!
+  - Where is my order? This drink is trash.
+  - I didn't ask for this one.
+  - This isn't my coffee.
