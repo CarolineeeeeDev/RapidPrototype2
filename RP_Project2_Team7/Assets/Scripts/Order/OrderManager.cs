@@ -48,6 +48,19 @@ public class OrderManager : MonoBehaviour
 
     private void Start()
     {
+        // CustomerOrderUI.SetActive(true);
+        // MakeCoffeeUI.SetActive(false);
+        // CustomerResponseUI.SetActive(false);
+        // InvokeRepeating("SpawnCustomerOrder", 0, orderDisplayTime);
+        // InvokeRepeating("HideCustomerOrderUI", 5, orderDisplayTime);
+        // currentDifficulty = difficulties[0];
+        // currentDifficultyIndex = 1;
+        // isOrderFinished = true;
+        
+    }
+
+    public void StartOrder()
+    {
         CustomerOrderUI.SetActive(true);
         MakeCoffeeUI.SetActive(false);
         CustomerResponseUI.SetActive(false);
@@ -56,7 +69,6 @@ public class OrderManager : MonoBehaviour
         currentDifficulty = difficulties[0];
         currentDifficultyIndex = 1;
         isOrderFinished = true;
-        
     }
 
     private void InitiateOrder()

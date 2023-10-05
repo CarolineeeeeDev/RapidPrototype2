@@ -51,6 +51,20 @@ public class HealthManager : MonoBehaviour
         sanityDropCoroutine = StartCoroutine(SanityDrop());
     }
 
+    public void RestartSanity()
+    {
+        sanity = 100;
+        healthBar.value = sanity;
+        addiction = 0f;
+        addictionBar.value = addiction;
+        if(sanityDropCoroutine != null)
+        {
+            StopCoroutine(sanityDropCoroutine);
+            sanityDropCoroutine = null;
+        }
+        sanityDropCoroutine = StartCoroutine(SanityDrop());
+    }
+
     private IEnumerator SanityDrop()
     {
         sanity = 100;
