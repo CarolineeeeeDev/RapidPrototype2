@@ -44,11 +44,11 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        sanity = 100;
-        healthBar.value = sanity;
-        addiction = 0f;
-        addictionBar.value = addiction;
-        sanityDropCoroutine = StartCoroutine(SanityDrop());
+        // sanity = 100;
+        // healthBar.value = sanity;
+        // addiction = 0f;
+        // addictionBar.value = addiction;
+        // sanityDropCoroutine = StartCoroutine(SanityDrop());
     }
 
     public void RestartSanity()
