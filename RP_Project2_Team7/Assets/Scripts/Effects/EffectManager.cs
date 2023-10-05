@@ -17,6 +17,8 @@ public class EffectManager : MonoBehaviour
     private BlurEffect blurEffect;
     [SerializeField]
     private BlendEffect blendEffect;
+    [SerializeField]
+    private FlashEffect flashEffect;
 
 
     private void Start() 
@@ -25,6 +27,7 @@ public class EffectManager : MonoBehaviour
         
     }
 
+#region Blur
     public void RestartStageOneBlur(float blurSpeed)
     {
         if(blurEffect == null) { return; }
@@ -40,25 +43,38 @@ public class EffectManager : MonoBehaviour
     {
         blurEffect.StopBlur(false);
     }
-    public void RestartBlendTexture(float opacityDecreaseSpeed)
-    {
-        if(blendEffect == null) { return; }
-        blendEffect.RestartBlendTexture(opacityDecreaseSpeed);
-    }
+#endregion
 
-    public void StopBlend()
-    {
-        blendEffect.StopBlend();
-    }
+#region Blend
+    // public void RestartBlendTexture(float opacityDecreaseSpeed)
+    // {
+    //     if(blendEffect == null) { return; }
+    //     blendEffect.RestartBlendTexture(opacityDecreaseSpeed);
+    // }
 
-    public void ResetBlend()
-    {
-        blendEffect.ResetBlend();
-    }
+    // public void StopBlend()
+    // {
+    //     blendEffect.StopBlend();
+    // }
+
+    // public void ResetBlend()
+    // {
+    //     blendEffect.ResetBlend();
+    // }
 
     public void AddBlend(float addAmount)
     {
         blendEffect.AddBlend(addAmount);
     }
+#endregion
+
+#region Flash
+    public void RestartFlash(float speed, int reapeatTime)
+    {
+        if(flashEffect == null) { return; }
+        flashEffect.RestartFlash(speed, reapeatTime);
+    }
+#endregion
+
 
 }

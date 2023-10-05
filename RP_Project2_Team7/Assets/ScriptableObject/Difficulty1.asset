@@ -17,6 +17,10 @@ MonoBehaviour:
   addictionIncreaseAmount: 5
   stageOneblurSpeed: 0.0002
   stageTwoblurSpeed: 0.001
+  stageOneflashSpeed: 200
+  stageTwoflashSpeed: 5000
+  stageOneflashCount: 3
+  stageTwoflashCount: 5
   blendSpeed: 0.0375
   noiseSpeed: 2.5
   coffeeStrength:

@@ -22,6 +22,18 @@ public class DifficultyDefinition : ScriptableObject
     private float stageTwoblurSpeed = 0.001f;
     public float StageTwoblurSpeed => stageTwoblurSpeed;
     [SerializeField]
+    private float stageOneflashSpeed = 10f;
+    public float StageOneFlashSpeed => stageOneflashSpeed;
+    [SerializeField]
+    private float stageTwoflashSpeed = 10f;
+    public float StageTwoFlashSpeed => stageTwoflashSpeed;
+    [SerializeField]
+    private int stageOneflashCount = 3;
+    public int StageOneFlashCount => stageOneflashCount;
+    [SerializeField]
+    private int stageTwoflashCount = 5;
+    public int StageTwoFlashCount => stageTwoflashCount;
+    [SerializeField]
     private float blendSpeed = 0.4f;
     public float BlendSpeed => blendSpeed;
     [SerializeField]
