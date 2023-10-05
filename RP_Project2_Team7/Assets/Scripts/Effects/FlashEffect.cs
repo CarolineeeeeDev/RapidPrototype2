@@ -23,7 +23,7 @@ public class FlashEffect : MonoBehaviour
     private void ResetImage()
     {
         Color newColor = flashImage.color;
-        newColor.a = 1;
+        newColor.a = 0;
         flashImage.color = newColor;
     }
 
@@ -32,15 +32,15 @@ public class FlashEffect : MonoBehaviour
         Color newColor = flashImage.color;
         for(int i = 0; i < reapeatTime; i++)
         {
-            while(newColor.a > 0)
-            {
-                newColor.a -= 0.01f;  
-                flashImage.color = newColor;
-                yield return new WaitForSeconds(1 / speed);
-            }
             while(newColor.a < 1)
             {
                 newColor.a += 0.01f;  
+                flashImage.color = newColor;
+                yield return new WaitForSeconds(1 / speed);
+            }
+            while(newColor.a > 0)
+            {
+                newColor.a -= 0.01f;  
                 flashImage.color = newColor;
                 yield return new WaitForSeconds(1 / speed);
             }
