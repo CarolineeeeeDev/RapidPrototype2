@@ -30,7 +30,7 @@ public class OrderManager : MonoBehaviour
     //Customer Order
     [SerializeField] private TextMeshProUGUI orderText;
     [SerializeField] private TextMeshProUGUI responseText;
-
+    [SerializeField] private int orderDisplayTime=60;
     private CoffeeOrder customerOrder=new CoffeeOrder();//CustomerOrderInformation
     private bool isOrderFinished;
     [SerializeField] 
@@ -51,8 +51,8 @@ public class OrderManager : MonoBehaviour
         CustomerOrderUI.SetActive(true);
         MakeCoffeeUI.SetActive(false);
         CustomerResponseUI.SetActive(false);
-        InvokeRepeating("SpawnCustomerOrder", 0, 60);
-        InvokeRepeating("HideCustomerOrderUI", 5, 60);
+        InvokeRepeating("SpawnCustomerOrder", 0, orderDisplayTime);
+        InvokeRepeating("HideCustomerOrderUI", 5, orderDisplayTime);
         currentDifficulty = difficulties[0];
         currentDifficultyIndex = 1;
         isOrderFinished = true;
@@ -189,8 +189,8 @@ public class OrderManager : MonoBehaviour
         }
         CancelInvoke("SpawnCustomerOrder");
         CancelInvoke("HideCustomerOrderUI");
-        InvokeRepeating("SpawnCustomerOrder", 5, 60);
-        InvokeRepeating("HideCustomerOrderUI", 10, 60);
+        InvokeRepeating("SpawnCustomerOrder", 5, orderDisplayTime);
+        InvokeRepeating("HideCustomerOrderUI", 10, orderDisplayTime);
     }
     private string GenerateOrderText(int difficulty)
     {
